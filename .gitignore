@@ -190,3 +190,6 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+/Metadata/Church/nbproject/private/
+/Church/nbproject/private/
+/JavaManager/nbproject/private/
