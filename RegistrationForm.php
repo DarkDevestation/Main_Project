@@ -14,17 +14,48 @@ if(isset($_GET['submit']))
 
 ?>
 
+<script>
+function changeHouseholdType()
+{
+	// single house
+	if (document.getElementById('householdType').value == "1")
+	{
+		document.getElementById('otherFamilies').style.display= "none"; 
+	}
+	
+	// combined house
+	else if (document.getElementById('householdType').value == "2")
+	{
+		document.getElementById('otherFamilies').style.display= "inline"; 
+	}
+}
+
+</script>
+
 <html> 
 <body>
 <p>Residence Verification *</p><!--<br>-->
 <form action="RegistrationForm.php" method="get">
 <input type="radio" name="resVer" value="true">Yes<br>
 <input type="radio" name="resVer" value="false">No<br>
+See Anne or Maryann if "no" and make notation*<br>
+<input type="text" name="resVerNoNotes"><br>
 <br>
-Type of household *<br><select name="Type of Household">
-<option value="single">Single Household</option>
-<option value="combined">Combined Household</option>
-</select><br>
+Type of household *<br><select id="householdType" onChange="changeHouseholdType()">
+<option value="0"></option>
+<option value="1">Single Household</option>
+<option value="2">Combined Household</option>
+</select><br><br>
+
+Head of Household Name*<br>
+<input type="text" name="hohFirst"><input type="text" name="hohLast"><br>
+First name Last Name<br><br>
+
+<div id= "otherFamilies" style="display: inline;">
+<input type="text" name="secondFamily"><br>
+Second Family Name<br><br>
+</div>
+
 Address: <input type="text" name="address1"><br>
 Address2: <input type="text" name="address2"><br>
 City: <input type="text" name="city"><p></p>State: <input type="text" name="state">
