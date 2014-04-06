@@ -65,7 +65,18 @@ How did you learn about the Stores?* <br><select name="Learn">
 
 Notes: <input type="text" name="notes"><br>
 This Form was completed by* <input type="text" name="completed"><br>
-</form>
 
+<input type="submit" value="Submit">
+</form>
+<?php
+// Create connection
+ $con=mysqli_connect("localhost");
+
+// Check connection
+ if (mysqli_connect_errno())
+   {
+   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+   }
+ ?> 
 </body>
 </html>
