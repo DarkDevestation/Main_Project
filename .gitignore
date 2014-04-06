@@ -190,3 +190,15 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+# =========================
+# Ignore server stuff
+# =========================
+
+forbidden
+img
+restricted
+xampp
+*.gif
+*.png
+bitnami.css
