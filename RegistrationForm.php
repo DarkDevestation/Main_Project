@@ -1,8 +1,23 @@
 <!DOCTYPE HTML>
+<?php 
+if(isset($_GET['submit']))
+{ 
+	$con = mysql_connect("127.0.0.1","root","");
+	if (!$con)
+	{
+	  die('Could not connect: ' . mysql_error());
+    }
+	 
+	 
+	mysql_close($con);
+} 
+
+?>
+
 <html> 
 <body>
 <p>Residence Verification *</p><!--<br>-->
-<form action="general form.php" method="post">
+<form action="RegistrationForm.php" method="get">
 <input type="radio" name="resVer" value="true">Yes<br>
 <input type="radio" name="resVer" value="false">No<br>
 <br>
@@ -66,17 +81,7 @@ How did you learn about the Stores?* <br><select name="Learn">
 Notes: <input type="text" name="notes"><br>
 This Form was completed by* <input type="text" name="completed"><br>
 
-<input type="submit" value="Submit">
+<input type="submit" name="submit" value="Submit"> 
 </form>
-<?php
-// Create connection
- $con=mysqli_connect("localhost");
-
-// Check connection
- if (mysqli_connect_errno())
-   {
-   echo "Failed to connect to MySQL: " . mysqli_connect_error();
-   }
- ?> 
 </body>
 </html>
