@@ -18,18 +18,30 @@ if(isset($_GET['submit']))
 function changeHouseholdType()
 {
 	// single house
-	if (document.getElementById('householdType').value == "1")
+	if (document.getElementById('householdType').value == "single")
 	{
 		document.getElementById('otherFamilies').style.display= "none"; 
 	}
 	
 	// combined house
-	else if (document.getElementById('householdType').value == "2")
+	else if (document.getElementById('householdType').value == "combined")
 	{
 		document.getElementById('otherFamilies').style.display= "inline"; 
 	}
 }
 
+function changeLang()
+{
+	// not english or spanish
+	if (document.getElementById('spokenLang').value == "other")
+	{
+		document.getElementById('otherLang').style.display= "inline"; 
+	}
+	else
+	{
+		document.getElementById('otherLang').style.display= "none"; 
+	}
+}
 </script>
 
 <html> 
@@ -42,22 +54,31 @@ See Anne or Maryann if "no" and make notation*<br>
 <input type="text" name="resVerNoNotes"><br>
 <br>
 Type of household *<br><select id="householdType" onChange="changeHouseholdType()">
-<option value="0"></option>
-<option value="1">Single Household</option>
-<option value="2">Combined Household</option>
+<option value=""></option>
+<option value="single">Single Household</option>
+<option value="combined">Combined Household</option>
 </select><br><br>
 
 Head of Household Name*<br>
 <input type="text" name="hohFirst"><input type="text" name="hohLast"><br>
 First name Last Name<br><br>
 
-<div id= "otherFamilies" style="display: inline;">
+<div id= "otherFamilies" style="display: none;">
 <input type="text" name="secondFamily"><br>
 Second Family Name<br><br>
+
+<input type="text" name="thirdFamily"><br>
+Third Family Name<br><br>
+
+<input type="text" name="fourthFamily"><br>
+Fourth Family Name<br><br>
+
+<input type="text" name="fifthFamily"><br>
+Fifth Family Name<br><br>
 </div>
 
 Address: <input type="text" name="address1"><br>
-Address2: <input type="text" name="address2"><br>
+Address 2: <input type="text" name="address2"><br>
 City: <input type="text" name="city"><p></p>State: <input type="text" name="state">
 Zip Code: <input type="text" name="zipcode"><br>
 
@@ -79,23 +100,28 @@ Secondary Phone: <input type="text" name="secondaryphone"><br>
 <input type="text" name="othertext1"><br>
 
 Number of Family Members<input type="number" name="othertext1"><br>
-Language Spoken* <br><select name="Language Spoken">
-<option value="english">English</option>
-<option value="spanish">Spanish</option>
-</select><br>
+Language spoken *<br><select id="spokenLang" onChange="changeLang()">
+<option value="eng">English</option>
+<option value="esp">Spanish</option>
+<option value="other">Other</option>
+</select><br><br>
 
-Language Spoken* <br><select name="Language Spoken">
-<option value="english">English</option>
-<option value="spanish">Spanish</option>
-</select><br>
+<div id= "otherLang" style="display: none;">
+<input type="text" id="otherLang"><br>
+Other Language*<br><br> </div>
 
 Delivery<br><input type="radio" name="delivery" value="true">Yes<br>
 <input type="radio" name="delivery" value="false">No<br>
 <p>See Anne of Maryann if yes</p>
 
-Christmas Store selection*<br><input type="radio" name="storeSelection" value="food">Food<br>
-<input type="radio" name="storeSelection" value="toys">Clothing & Toys<br>
+Christmas Store selection*<br>
+<input type="radio" name="storeSelection" value="food" onClick= "document.getElementById('toysInput').style.display= 'none'">Food<br>
+<input type="radio" name="storeSelection" id="storeSelectionT" value="toys" onClick= "document.getElementById('toysInput').style.display= 'inline'">Clothing & Toys<br>
 <p>(Clothing & Toys is for children 12 & under)</p>
+
+<div id= "toysInput" style="display: none;">
+<input type="number" id="numKids"><br>
+Number of Children 12 & under*<br><br> </div>
 
 How did you learn about the Stores?* <br><select name="Learn">
 <option value="previous">Previous Customer</option>
