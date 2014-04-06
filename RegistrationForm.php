@@ -10,6 +10,11 @@ if(isset($_GET['submit']))
 	 
 	 
 	mysql_close($con);
+	
+	if ($_GET['storeSelection'] == 'toys')
+	{
+		header( 'Location: http://127.0.0.1/clothesform.php' ) ;
+	}
 } 
 
 ?>
