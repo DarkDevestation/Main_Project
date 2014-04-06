@@ -42,6 +42,18 @@ function changeLang()
 		document.getElementById('otherLang').style.display= "none"; 
 	}
 }
+
+function changeLearn()
+{
+	if (document.getElementById('learn').value == "other")
+	{
+		document.getElementById('otherLearn').style.display= "inline"; 
+	}
+	else
+	{
+		document.getElementById('otherLearn').style.display= "none"; 
+	}
+}
 </script>
 
 <html> 
@@ -123,12 +135,17 @@ Christmas Store selection*<br>
 <input type="number" id="numKids"><br>
 Number of Children 12 & under*<br><br> </div>
 
-How did you learn about the Stores?* <br><select name="Learn">
+How did you learn about the Stores?* <br><select id="learn" onChange= "changeLearn()">
 <option value="previous">Previous Customer</option>
 <option value="flyer">Flyer</option>
 <option value="school">School</option>
 <option value="word">Word of Mouth</option>
+<option value="other">Other</option>
 </select><br>
+
+<div id= "otherLearn" style="display: none;">
+<input type="text" id="otherLang"><br>
+How did you learn about the store?*<br><br> </div>
 
 <b>Can a member of the St. Margaret Mary Church and Community Organization call you after the holidays to talk more about the needs and concerns of you and your family?*</b>
 <br><input type="radio" name="contact" value="true">Yes<br>
