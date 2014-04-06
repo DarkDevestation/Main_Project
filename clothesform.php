@@ -3,7 +3,35 @@
 <?php 
 if(isset($_GET['submit']))
 { 
-	echo $_GET["hohFirst"];
+	$con = mysql_connect("127.0.0.1","root","");
+	if (!$con)
+	{
+	  die('Could not connect: ' . mysql_error());
+    }
+	 
+	mysql_select_db("stmargaretmarycatholicchurch", $con);
+	 
+	$sql="INSERT INTO family (firstname, lastname, headofhousehold)
+	VALUES
+	('$_GET[hohFirst]','$_GET[hohLast]',1)";
+	 
+	if (!mysql_query($sql,$con))
+	{
+	  die('Error: ' . mysql_error());
+	}
+	  
+	  	$sql="INSERT INTO family (firstname, lastname, headofhousehold)
+	VALUES
+	('$_POST[parentFirst]','$_POST[parentLast]', 0)";
+	 
+	if (!mysql_query($sql,$con))
+	{
+	  die('Error: ' . mysql_error());
+	}
+	
+	
+	 
+	mysql_close($con);
 } 
 
 ?>
