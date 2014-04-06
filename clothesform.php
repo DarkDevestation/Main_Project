@@ -11,14 +11,14 @@
 	First name Last Name<br>
 	
 	<h2>Child's ID</h2>
-	<form>
+	<form action="clothesInsert.php" method="getID">
 		<input type="radio" name="childID" value="true">Yes<br>
 		<input type="radio" name="childID" value="false">No<br>
 	</form>
 	must see Anne or Maryann if answer is 'no'<br>
 	
 	<h2>Sex of Child*</h2>
-	<form>
+	<form action="clothesInsert.php" method="getSex">
 		<input type="radio" name="sex" value="male">Boy<br>
 		<input type="radio" name="sex" value="female">Girl<br>
 		<input type="radio" name="sex" value="unknown">Unknown<br>
@@ -28,7 +28,7 @@
 	<input type="text" name="age"><br>
 	
 	<h2>Is there information for another child to be entered?*</h2>
-	<form>
+	<form action="clothesInsert.php" method="getAnother">
 		<input type="radio" name="another" value="true">Yes<br>
 		<input type="radio" name="another" value="false">No<br>
 	</form><br>
@@ -38,7 +38,7 @@
 	use this space for any special needs or information to be noted<br>
 	
 	<h2>Have you reviewed this form with client?*</h2>
-	<form action="">
+	<form action="clothesInsert.php" method="getNeeds">
 	<input type="checkbox" name="review" value="age">age of child<br>
 	<input type="checkbox" name="review" value="infant">infant outfit OR<br>
 	<input type="checkbox" name="review" value="jeans">jeans AND<br>
@@ -53,7 +53,9 @@
 	<input type="text" name="completedBy"><br>
 	initials<br><br>
 	
-	<button type="button">submit</button>
+	<form action="<?=$_SERVER['PHP_SELF'];?>" method="post"> 
+	<input type="submit" name="submit" value="Click Me"> 
+	</form> 
 	
 	</body>
 </html>
