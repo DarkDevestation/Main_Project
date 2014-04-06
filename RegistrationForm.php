@@ -87,11 +87,12 @@ if(isset($_GET['submit']))
 { 
 	$con = mysql_connect("127.0.0.1");
     mysql_select_db("stmargaretmarycatholicchurch", $con);
-    $sql = "SELECT COUNT(*)"
+    $sql = "SELECT COUNT(*)";
+    $id = mysql_affected_rows(mysql_query($sql,$con));
     $sql ="INSERT INTO household(residenceverification, residenceverficationnote, idhouseholdtype, address1, address2, city, state, zipcode
            email, idphonetypeprimary, phonenumberprimary, idphonetypesecondary, phonenumnersecondary, numberoffamilymembers, idlanguage)
            VALUES
-           ('$_GET[rv]','$_GET[notes]'')";
+           ('$_GET[rv]','$_GET[notes]'$id',$_GET[address1], $_GET[address2], $_GET[city], $_GET[state], $_GET[zipcode], $_GET[email], '$id',  )";
            mysql_close($con);
 } 
 ?>
