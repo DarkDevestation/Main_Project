@@ -68,7 +68,7 @@ function checkForm()
 		formCorrect= false;
 	}
 	
-	if (document.getElementById('age').value == "")
+	if (document.getElementById('age').value == "" || document.getElementById('age').value > "12" || document.getElementById('age').value < "0")
 	{
 		formCorrect= false;
 	}
@@ -114,9 +114,13 @@ function checkForm()
 	First name Last Name<br>
 	
 	<h2>Child's ID*</h2>
-	<input type="radio" id="childIDY" name="childID" value="true">Yes<br>
-	<input type="radio" id="childIDN" name="childID" value="false">No<br>
-	must see Anne or Maryann if answer is 'no'<br>
+	<input type="radio" id="childIDY" name="childID" onClick= "document.getElementById('childIDNo').style.display= 'none'">>Yes<br>
+	<input type="radio" id="childIDN" name="childID" onClick= "document.getElementById('childIDNo').style.display= 'inline'">>No<br>
+	
+	<div id= "childIDNo" style="display: none;">
+	See Anne or Maryann if "no" and make notation*<br>
+	<input type="text" name="childIDNoNotes"><br>
+	<br></div>
 	
 	<h2>Sex of Child*</h2>
 	<input type="radio" id= "boy" name="sex" value="male">Boy<br>
