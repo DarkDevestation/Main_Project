@@ -141,7 +141,7 @@ function checkForm()
 			<input type="radio" id="standardInfantGirl" name="infantGirlType" value="baby" onClick= "document.getElementById('infantGirlSize').style.display= 'inline';
 			 document.getElementById('infantGirlSpecial').style.display= 'none'">Girl's Infant Outfit<br>
 			<input type="radio" id= "specialInfantGirl" name="infantGirlType" value="kid" onClick= "document.getElementById('infantGirlSpecial').style.display= 'inline';
-			 document.getElementById('standardGirlSpecial').style.display= 'none'">Special Request Infant Outfit<br><br>
+			 document.getElementById('infantGirlSize').style.display= 'none'">Special Request Infant Outfit<br><br>
 			
 			<div id= "infantGirlSize" style="display: none;">
 				<select id="infantGirlSizeSelect" onChange="infantGirlSize()">
@@ -166,8 +166,8 @@ function checkForm()
 			<input type="radio" id="standardKidGirl" name="kidGirlType" value="baby" onClick= "document.getElementById('kidGirlSize').style.display= 'inline';
 			 document.getElementById('kidGirlSpecial').style.display= 'none'">Girl's Jeans<br>
 			<input type="radio" id= "specialKidGirl" name="kidGirlType" value="kid" onClick= "document.getElementById('kidGirlSpecial').style.display= 'inline';
-			 document.getElementById('standardGirlSpecial').style.display= 'none'">Girl's Special Request Item (Jeans, Skirt, Dress)<br>
-			 check girl's jeans if item declined<br>
+			 document.getElementById('kidGirlSize').style.display= 'none'">Girl's Special Request Item (Jeans, Skirt, Dress)<br>
+			 check girl's jeans if item declined<br><br>
 			
 			<div id= "kidGirlSize" style="display: none;">
 				<select id="kidGirlSizeSelect" onChange="kidGirlSize()">
@@ -203,7 +203,7 @@ function checkForm()
 				<option value="B35">B35- Girl's Juniors Jeans, Regular 9</option>
 				<option value="B36">B36- Girl's Juniors Jeans, Regular 11</option>
 				<option value="B37">B37- Girl's Juniors Jeans, Regular 13</option>
-				<option value="B38">B38- Girl's Juniors Jeans, Regular 15<option>
+				<option value="B38">B38- Girl's Juniors Jeans, Regular 15</option>
 				<option value="B39">B39- Girl's Juniors Jeans, Regular 17</option>
 				<option value="B40">B40- Girl's Juniors Jeans, Regular 19</option>
 				<option value="B41">B41- Girl's Jeans Declined</option>
