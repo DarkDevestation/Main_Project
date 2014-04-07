@@ -65,11 +65,14 @@ function changeLearn()
 <body>
 <p>Residence Verification *</p><!--<br>-->
 <form action="RegistrationForm.php" method="get">
-<input type="radio" name="resVer" value="true">Yes<br>
-<input type="radio" name="resVer" value="false">No<br>
+<input type="radio" name="resVer" value="true" onClick= "document.getElementById('resVerNo').style.display= 'none'">Yes<br>
+<input type="radio" name="resVer" value="false" onClick= "document.getElementById('resVerNo').style.display= 'inline'">No<br>
+
+<div id= "resVerNo" style="display: none;">
 See Anne or Maryann if "no" and make notation*<br>
 <input type="text" name="resVerNoNotes"><br>
-<br>
+<br></div>
+
 Type of household *<br><select id="householdType" onChange="changeHouseholdType()">
 <option value=""></option>
 <option value="single">Single Household</option>
