@@ -62,7 +62,7 @@ function changeLearn()
 
 function checkForm()
 {
-	formCorrect= true;
+	var formCorrect= true;
 	
 	// since it's a radio, and can only return true when both are unchecked.
 	if (document.getElementById('resVerY').checked && document.getElementById('resVerN').checked)
