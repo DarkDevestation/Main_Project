@@ -1,16 +1,52 @@
 <!DOCTYPE HTML>
+<?php 
+if(isset($_GET['submit']))
+{ 
+	$con = mysql_connect("127.0.0.1","root","");
+    mysql_select_db("stmargaretmarycatholicchurch", $con);
+    //$sql ="INSERT INTO  householdtype (householdtypename) 
+      //     VALUES('$_GET[typeofhousehold]')";
+        //    if (!mysql_query($sql,$con))
+	//{
+	  //die('Error: ' . mysql_error());
+	//}
+    $sql ="INSERT INTO  phonetype (phonetypename) 
+           VALUES('$_GET[phone1]')";
+            if (!mysql_query($sql,$con))
+            {
+	  die('Error: ' . mysql_error());
+	}
+    $sql ="INSERT INTO  phonetype (phonetypename) 
+           VALUES('$_GET[phone2]')";
+            if (!mysql_query($sql,$con))
+            {
+	  die('Error: ' . mysql_error());
+	}
+    $sql ="INSERT INTO household 
+           VALUES(residenceverification, residenceverficationnote, address1, address2, city, state, zipcode
+           email, phonenumberprimary, phonenumnersecondary, numberoffamilymembers, idlanguage)
+           (1,'$_GET[notes]','$_GET[address1]', '$_GET[address2]', '$_GET[city]', '$_GET[state]', '$_GET[zipcode]', '$_GET[email]', 
+           '$_GET[othertext1]','$_GET[primaryphone]','$_GET[othertext2]','$_GET[secondaryphone]','$_GET[nummembers]','$_GET[LanguageSpoken]')";
+           if (!mysql_query($sql,$con))
+	{
+	  die('Error: ' . mysql_error());
+	}
+	  
+           mysql_close($con);
+} 
+?>
 <html> 
 <body>
 <p>Residence Verification *</p><!--<br>-->
-<form action="general form.php" method="post">
-<input type="radio" name="rv"<?php if (isset($rv) && $rv=="1") echo "checked";?>
-value="1">>Yes<br>
-<input type="radio" name="rv" <?php if (isset($rv) && $rv=="0") echo "checked";?>
-value="0">>No<br>
+<form action="RegistrationForm.php" method="get">
+<input type="radio" name="rv"<?php if (isset($rv) && $rv==1) echo "checked";?>
+value=1 >>Yes<br>
+<input type="radio" name="rv" <?php if (isset($rv) && $rv==0) echo "checked";?>
+value=0 >>No<br>
 <br>
-Type of household *<br><select name="Type of Household">
-<option value="0">Single Household</option>
-<option value="1">Combined Household</option>
+Type of household *<br><select name="typeofhousehold">
+<option value="single">Single Household</option>
+<option value="combined">Combined Household</option>
 </select><br>
 Address: <input type="text" name="address1"><br>
 Address2: <input type="text" name="address2"><br>
@@ -20,35 +56,35 @@ Zip Code: <input type="text" name="zipcode"><br>
 E-mail: <input type="text" name="email"><br>
 Primary Phone: <input type="text" name="primaryphone"><br>
 
-<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="0") echo "checked";?>
-value="0">>Home<br>
-<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="1") echo "checked";?>
-value="1">>Cell<br>
-<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="2") echo "checked";?>
-value="2">>Work<br>
-<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="3") echo "checked";?>
-value="3">>Other:<br>
+<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="home") echo "checked";?>
+value="home">>Home<br>
+<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="cell") echo "checked";?>
+value="cell">>cell<br>
+<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="work") echo "checked";?>
+value="work">>Work<br>
+<input type="radio" name="phone1" <?php if (isset($phone1) && $phone1=="other") echo "checked";?>
+value="other">>Other:<br>
 <input type="number" name="othertext1"><br>
 
 Secondary Phone: <input type="text" name="secondaryphone"><br>
 
-<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="0") echo "checked";?>
-value="0">>Home<br>
-<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="1") echo "checked";?>
-value="1">>Cell<br>
-<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="2") echo "checked";?>
-value="2">>Work<br>
-<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="3") echo "checked";?>
-value="3">>Other:<br>
+<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="home") echo "checked";?>
+value="home">>Home<br>
+<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="cell") echo "checked";?>
+value="cell">>Cell<br>
+<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="work") echo "checked";?>
+value="work">>Work<br>
+<input type="radio" name="phone2" <?php if (isset($phone2) && $phone2=="other") echo "checked";?>
+value="other">>Other:<br>
 <input type="number" name="othertext2"><br>
 
 Number of Family Members<input type="number" name="nummembers"><br>
-Language Spoken* <br><select name="Language Spoken">
+Language Spoken* <br><select name="LanguageSpoken">
 <option value="english">English</option>
 <option value="spanish">Spanish</option>
 </select><br>
 
-Language Spoken* <br><select name="Language Spoken">
+Language Spoken* <br><select name="LanguageSpoken">
 <option value="english">English</option>
 <option value="spanish">Spanish</option>
 </select><br>
@@ -79,20 +115,5 @@ Notes: <input type="text" name="notes"><br>
 This Form was completed by* <input type="text" name="completed"><br>
 <input type="submit" name="submit">
 </form>
-
 </body>
 </html>
-<?php 
-if(isset($_GET['submit']))
-{ 
-	$con = mysql_connect("127.0.0.1");
-    mysql_select_db("stmargaretmarycatholicchurch", $con);
-    $sql = "SELECT COUNT(*)";
-    $id = mysql_affected_rows(mysql_query($sql,$con));
-    $sql ="INSERT INTO household(residenceverification, residenceverficationnote, idhouseholdtype, address1, address2, city, state, zipcode
-           email, idphonetypeprimary, phonenumberprimary, idphonetypesecondary, phonenumnersecondary, numberoffamilymembers, idlanguage)
-           VALUES
-           ('$_GET[rv]','$_GET[notes]'$id',$_GET[address1], $_GET[address2], $_GET[city], $_GET[state], $_GET[zipcode], $_GET[email], '$id',  )";
-           mysql_close($con);
-} 
-?>
