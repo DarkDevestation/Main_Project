@@ -10,7 +10,7 @@ if(isset($_GET['submit']))
 	 
 	 
 	mysql_close($con);
-	
+
 	if ($_GET['storeSelection'] == 'toys')
 	{
 		header( 'Location: http://127.0.0.1/clothesform.php' ) ;
@@ -59,14 +59,72 @@ function changeLearn()
 		document.getElementById('otherLearn').style.display= "none"; 
 	}
 }
+
+function checkForm()
+{
+	formCorrect= true;
+	
+	// since it's a radio, and can only return true when both are unchecked.
+	if (document.getElementById('resVerY').checked && document.getElementById('resVerN').checked)
+	{
+		formCorrect= false;
+	}
+	
+	if (document.getElementById('householdType').value == "nullOpt")
+	{
+		formCorrect= false;
+	}
+	
+	if (document.getElementById('hohFirst').value == "" || document.getElementById('hohLast').value == "")
+	{
+		formCorrect= false;
+	}
+	
+	if (document.getElementById('spokenLang').value == "other" && document.getElementById('otherLang').value == "")
+	{
+		formCorrect= false;
+	}
+	
+	// evaluates to true when neither toyStore or foodStore are selected, or toyStore is selected and numKids is null
+	if ((document.getElementById('toyStore').checked && document.getElementById('foodStore').checked) ||
+		(document.getElementById('toyStore').checked && document.getElementById('numKids').value == ""))
+	{
+		formCorrect= false;
+	}
+	
+	if (document.getElementById('contactY').checked && document.getElementById('contactN').checked)
+	{
+		formCorrect= false;
+	}
+	
+	if (document.getElementById('completedBy').value == "nullOpt")
+	{
+		formCorrect= false;
+	}
+	
+	if (formCorrect == false)
+	{
+		document.getElementById('formCorrect').style.display= 'inline';
+	}
+	else
+	{
+		document.getElementById("registration").submit();
+	}
+}
 </script>
 
 <html> 
 <body>
-<p>Residence Verification *</p><!--<br>-->
-<form action="RegistrationForm.php" method="get">
-<input type="radio" name="resVer" value="true" onClick= "document.getElementById('resVerNo').style.display= 'none'">Yes<br>
-<input type="radio" name="resVer" value="false" onClick= "document.getElementById('resVerNo').style.display= 'inline'">No<br>
+
+<form id="registration" action="RegistrationForm.php" method="get">
+ 
+<div id= "formCorrect" style="display: none;">
+Please ensure that you've filled out all required sections.<br>
+</div>
+
+<p>Residence Verification *</p>
+<input type="radio" name="resVer" id="resVerY" value="true" onClick= "document.getElementById('resVerNo').style.display= 'none'">Yes<br>
+<input type="radio" name="resVer" id="resVerN" value="false" onClick= "document.getElementById('resVerNo').style.display= 'inline'">No<br>
 
 <div id= "resVerNo" style="display: none;">
 See Anne or Maryann if "no" and make notation*<br>
@@ -74,13 +132,13 @@ See Anne or Maryann if "no" and make notation*<br>
 <br></div>
 
 Type of household *<br><select id="householdType" onChange="changeHouseholdType()">
-<option value=""></option>
+<option value="nullOpt"></option>
 <option value="single">Single Household</option>
 <option value="combined">Combined Household</option>
 </select><br><br>
 
 Head of Household Name*<br>
-<input type="text" name="hohFirst"><input type="text" name="hohLast"><br>
+<input type="text" name="hohFirst" id="hohFirst"><input type="text" name="hohLast" id="hohLast"><br>
 First name Last Name<br><br>
 
 <div id= "otherFamilies" style="display: none;">
@@ -135,8 +193,8 @@ Delivery<br><input type="radio" name="delivery" value="true">Yes<br>
 <p>See Anne of Maryann if yes</p>
 
 Christmas Store selection*<br>
-<input type="radio" name="storeSelection" value="food" onClick= "document.getElementById('toysInput').style.display= 'none'">Food<br>
-<input type="radio" name="storeSelection" id="storeSelectionT" value="toys" onClick= "document.getElementById('toysInput').style.display= 'inline'">Clothing & Toys<br>
+<input type="radio" name="storeSelection" id= "foodStore" value="food" onClick= "document.getElementById('toysInput').style.display= 'none'">Food<br>
+<input type="radio" name="storeSelection" id= "toyStore" value="toys" onClick= "document.getElementById('toysInput').style.display= 'inline'">Clothing & Toys<br>
 <p>(Clothing & Toys is for children 12 & under)</p>
 
 <div id= "toysInput" style="display: none;">
@@ -156,14 +214,13 @@ How did you learn about the Stores?* <br><select id="learn" onChange= "changeLea
 How did you learn about the store?*<br><br> </div>
 
 <b>Can a member of the St. Margaret Mary Church and Community Organization call you after the holidays to talk more about the needs and concerns of you and your family?*</b>
-<br><input type="radio" name="contact" value="true">Yes<br>
-<input type="radio" name="contact" value="false">No<br>
-<p>(Clothing & Toys is for children 12 & under)</p>
+<br><input type="radio" name="contact" id= "contactY" value="true">Yes<br>
+<input type="radio" name="contact" id= "contactN" value="false">No<br>
 
 Notes: <input type="text" name="notes"><br>
-This Form was completed by* <input type="text" name="completed"><br>
+This Form was completed by* <input type="text" id= "completedBy" name="completed"><br>
 
-<input type="submit" name="submit" value="Submit"> 
+<input type="button" name="submitBtn" value="Submit" onClick="checkForm()"> 
 </form>
 </body>
 </html>
