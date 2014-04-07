@@ -114,8 +114,8 @@ function checkForm()
 	First name Last Name<br>
 	
 	<h2>Child's ID*</h2>
-	<input type="radio" id="childIDY" name="childID" onClick= "document.getElementById('childIDNo').style.display= 'none'">>Yes<br>
-	<input type="radio" id="childIDN" name="childID" onClick= "document.getElementById('childIDNo').style.display= 'inline'">>No<br>
+	<input type="radio" id="childIDY" name="childID" onClick= "document.getElementById('childIDNo').style.display= 'none'">Yes<br>
+	<input type="radio" id="childIDN" name="childID" onClick= "document.getElementById('childIDNo').style.display= 'inline'">No<br>
 	
 	<div id= "childIDNo" style="display: none;">
 	See Anne or Maryann if "no" and make notation*<br>
@@ -123,9 +123,102 @@ function checkForm()
 	<br></div>
 	
 	<h2>Sex of Child*</h2>
-	<input type="radio" id= "boy" name="sex" value="male">Boy<br>
-	<input type="radio" id="girl" name="sex" value="female">Girl<br>
-	<input type="radio" id="unknown" name="sex" value="unknown">Unknown<br>
+	<input type="radio" id="girl" name="sex" value="female" onClick= "document.getElementById('girlType').style.display= 'inline';
+	 document.getElementById('boyType').style.display= 'none'">Girl<br>
+	 
+	<input type="radio" id= "boy" name="sex" value="male" onClick= "document.getElementById('boyType').style.display= 'inline';
+	 document.getElementById('girlType').style.display= 'none'">Boy<br>
+	<input type="radio" id="unknown" name="sex" value="unknown">Unknown<br><br>
+	
+	<div id= "girlType" style="display: none;">
+		<input type="radio" id="girl" name="girlOutfitType" value="baby" onClick= "document.getElementById('infantGirlType').style.display= 'inline';
+		 document.getElementById('kidGirlType').style.display= 'none'">Girl's Infant Outfit<br>
+		
+		<input type="radio" id= "boy" name="girlOutfitType" value="kid" onClick= "document.getElementById('kidGirlType').style.display= 'inline';
+		 document.getElementById('infantGirlType').style.display= 'none'">Girl's Jeans and Shirt<br><br>
+		
+		<div id= "infantGirlType" style="display: none;">
+			<input type="radio" id="standardInfantGirl" name="infantGirlType" value="baby" onClick= "document.getElementById('infantGirlSize').style.display= 'inline';
+			 document.getElementById('infantGirlSpecial').style.display= 'none'">Girl's Infant Outfit<br>
+			<input type="radio" id= "specialInfantGirl" name="infantGirlType" value="kid" onClick= "document.getElementById('infantGirlSpecial').style.display= 'inline';
+			 document.getElementById('standardGirlSpecial').style.display= 'none'">Special Request Infant Outfit<br><br>
+			
+			<div id= "infantGirlSize" style="display: none;">
+				<select id="infantGirlSizeSelect" onChange="infantGirlSize()">
+				<option value="A01">A01- Girl's Newborn Outfit</option>
+				<option value="A02">A02- Girl's Infant Outfit, 3 Months</option>
+				<option value="A03">A03- Girl's Infant Outfit, 6 Months</option>
+				<option value="A04">A04- Girl's Infant Outfit, 9 Months</option>
+				<option value="A05">A05- Girl's Infant Outfit, 12 Months</option>
+				<option value="A06">A06- Girl's Infant Outfit, 18 Months</option>
+				<option value="A07">A07- Girl's Infant Outfit, 24 Months</option>
+				<option value="A08">A08- Girl's Infant Outfit, Declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "infantGirlSpecial" style="display: none;">
+				Special Request Girl's Infant Outfit
+				<input type="text" id="infantGirlSpecialText" name="infantGirlSpecialText">
+			</div>
+		</div>
+		
+		<div id= "kidGirlType" style="display: none;">
+			<input type="radio" id="standardKidGirl" name="kidGirlType" value="baby" onClick= "document.getElementById('kidGirlSize').style.display= 'inline';
+			 document.getElementById('kidGirlSpecial').style.display= 'none'">Girl's Jeans<br>
+			<input type="radio" id= "specialKidGirl" name="kidGirlType" value="kid" onClick= "document.getElementById('kidGirlSpecial').style.display= 'inline';
+			 document.getElementById('standardGirlSpecial').style.display= 'none'">Girl's Special Request Item (Jeans, Skirt, Dress)<br>
+			 check girl's jeans if item declined<br>
+			
+			<div id= "kidGirlSize" style="display: none;">
+				<select id="kidGirlSizeSelect" onChange="kidGirlSize()">
+				<option value="B01">B01- Toddler Girl's Jeans, 2T</option>
+				<option value="B02">B02- Toddler Girl's Jeans, 3T</option>
+				<option value="B03">B03- Girl's Jeans, Regular 4T/4</option>
+				<option value="B04">B04- Girl's Jeans, Regular 5T/5</option>
+				<option value="B07">B07- Girl's Jeans, Regular 6</option>
+				<option value="B09">B09- Girl's Jeans, Regular 7</option>
+				<option value="B10">B10- Girl's Jeans, Regular 8</option>
+				<option value="B11">B11- Girl's Jeans, Regular 10</option>
+				<option value="B12">B12- Girl's Jeans, Regular 12</option>
+				<option value="B13">B13- Girl's Jeans, Regular 14</option>
+				<option value="B14">B14- Girl's Jeans, Regular 16</option>
+				<option value="B15">B15- Girl's Jeans, Slim 4</option>
+				<option value="B16">B16- Girl's Jeans, Slim 5</option>
+				<option value="B17">B17- Girl's Jeans, Slim 6</option>
+				<option value="B19">B19- Girl's Jeans, Slim 7</option>
+				<option value="B20">B20- Girl's Jeans, Slim 8</option>
+				<option value="B21">B21- Girl's Jeans, Slim 10</option>
+				<option value="B22">B22- Girl's Jeans, Slim 12</option>
+				<option value="B23">B23- Girl's Jeans, Slim 14</option>
+				<option value="B24">B24- Girl's Jeans, Plus 8</option>
+				<option value="B25">B25- Girl's Jeans, Plus 10</option>
+				<option value="B26">B26- Girl's Jeans, Plus 12</option>
+				<option value="B27">B27- Girl's Jeans, Plus 14</option>
+				<option value="B28">B28- Girl's Jeans, Plus 16</option>
+				<option value="B30">B30- Girl's Juniors Jeans, Regular 0</option>
+				<option value="B31">B31- Girl's Juniors Jeans, Regular 1</option>
+				<option value="B32">B32- Girl's Juniors Jeans, Regular 3</option>
+				<option value="B33">B33- Girl's Juniors Jeans, Regular 5</option>
+				<option value="B34">B34- Girl's Juniors Jeans, Regular 7</option>
+				<option value="B35">B35- Girl's Juniors Jeans, Regular 9</option>
+				<option value="B36">B36- Girl's Juniors Jeans, Regular 11</option>
+				<option value="B37">B37- Girl's Juniors Jeans, Regular 13</option>
+				<option value="B38">B38- Girl's Juniors Jeans, Regular 15<option>
+				<option value="B39">B39- Girl's Juniors Jeans, Regular 17</option>
+				<option value="B40">B40- Girl's Juniors Jeans, Regular 19</option>
+				<option value="B41">B41- Girl's Jeans Declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidGirlSpecial" style="display: none;">
+				Special Request Girl's Kid Outfit
+				<input type="text" id="kidGirlSpecialText" name="kidGirlSpecialText">
+			</div>
+		</div>
+	</div>
+	
+	<div id= "boyType" style="display: none;">
+	</div>
 	
 	<h2>Age*</h2>
 	<input type="number" id="age" name="age" min="0" max="12"><br>
