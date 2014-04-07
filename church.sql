@@ -110,7 +110,53 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = '		';
 
+CREATE TABLE IF NOT EXISTS 'stmargaretmarycatholicchurch'.`household2` (
+  `idHouse` int(11) NOT NULL AUTO_INCREMENT,
+  `resVer` varchar(25) NOT NULL,
+  `hohFirst` varchar(45) NOT NULL,
+  `hohLast` varchar(45) NOT NULL,
+  `secondfamily` varchar(45) DEFAULT NULL,
+  `thirdfamily` varchar(45) DEFAULT NULL,
+  `fourthfamily` varchar(45) DEFAULT NULL,
+  `fifthfamily` varchar(45) DEFAULT NULL,
+  `address1` varchar(25) NOT NULL,
+  `address2` varchar(25) DEFAULT NULL,
+  `city` varchar(45) NOT NULL,
+  `state` varchar(45) NOT NULL,
+  `zipcode` varchar(45) NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `primaryphone` varchar(25) NOT NULL,
+  `phonetype` varchar(25) NOT NULL,
+  `secondaryphone` varchar(25) DEFAULT NULL,
+  `phonetype2` varchar(25) DEFAULT NULL,
+  `familymembers` int(2) DEFAULT NULL,
+  `earlyshopper` enum('yes','no') DEFAULT NULL,
+  `delivery` enum('yes','no') NOT NULL DEFAULT 'no',
+  `christmasselection` varchar(25) NOT NULL,
+  `numberofchildren` int(2) NOT NULL,
+  `learn` varchar(25) NOT NULL,
+  `othertext` varchar(45) DEFAULT NULL,
+  `contact` varchar(25) NOT NULL,
+  `notes` varchar(1000) DEFAULT NULL,
+  `completedby` varchar(45) NOT NULL,
+  PRIMARY KEY (`idHouse`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
+CREATE TABLE IF NOT EXISTS `stmargaretmarycatholicchurch`.`childclothingform2` (
+  `idchildclothingform` INT(11) NOT NULL AUTO_INCREMENT,
+  `hohFirst` varchar(45) NOT NULL,
+  `hohLast` varchar(45) NOT NULL,
+  `childFirst` varchar(45) NOT NULL,
+  `childLast` varchar(45) NOT NULL,
+  `parentFirst` varchar(45) DEFAULT NULL,
+  `parentLast` varchar(45) DEFAULT NULL,
+  `idclothingitem_infantoutfit` INT(11) NULL DEFAULT NULL,
+  `idclothingitem_jeans` INT(11) NULL DEFAULT NULL,
+  `idclothingitem_shirt` INT(11) NULL DEFAULT NULL,
+  `idclothingitem_socks` INT(11) NULL DEFAULT NULL,
+  `idclothingitem_underwear` INT(11) NULL DEFAULT NULL,
+  `idclothingitem_diapersorpullups` INT(11) NULL DEFAULT NULL,
+  )
 -- -----------------------------------------------------
 -- Table `stmargaretmarycatholicchurch`.`gender`
 -- -----------------------------------------------------
