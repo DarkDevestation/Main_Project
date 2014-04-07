@@ -1,3 +1,8 @@
+<!--    Brandon Forster, Patrick Delva
+        Group 4: Thanksgiving & Christmas Stores
+        COP 4710 
+-->
+
 <!DOCTYPE HTML>
 <?php 
 if(isset($_GET['submit']))
