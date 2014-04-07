@@ -15,57 +15,50 @@ if(isset($_GET['submit']))
 	//{
 	  //die('Error: ' . mysql_error());
 	//}
-    $sql ="INSERT INTO  phonetype (phonetypename) 
+    //$sql ="SELECT  idvalue 
+      //     FROM (currentid)";
+          // $result = mysql_query($sql,$con);
+    /*$sql ="INSERT INTO  phonetype (phonetypename) 
            VALUES('$_GET[phone1]')";
             if (!mysql_query($sql,$con))
             {
-	  die('Error: ' . mysql_error());
+	  die('Error1: ' . mysql_error());
 	}
     $sql ="INSERT INTO  phonetype (phonetypename) 
            VALUES('$_GET[phone2]')";
             if (!mysql_query($sql,$con))
             {
-	  die('Error: ' . mysql_error());
-	}
-    $sql ="INSERT INTO household 
-           VALUES(residenceverification, residenceverficationnote, address1, address2, city, state, zipcode
-           email, phonenumberprimary, phonenumnersecondary, numberoffamilymembers, idlanguage)
-           (1,'$_GET[notes]','$_GET[address1]', '$_GET[address2]', '$_GET[city]', '$_GET[state]', '$_GET[zipcode]', '$_GET[email]', 
-           '$_GET[othertext1]','$_GET[primaryphone]','$_GET[othertext2]','$_GET[secondaryphone]','$_GET[nummembers]','$_GET[LanguageSpoken]')";
+	  die('Error2: ' . mysql_error());
+      }
+   $sql ="INSERT INTO  language (languagename) 
+           VALUES('1,'$_GET[LanguageSpoken]')";
+            if (!mysql_query($sql,$con))
+            {
+	  die('Error3: ' . mysql_error());
+	}*/
+    //earlyshopper has still been left out of the insert statement
+    $sql ="INSERT INTO household2 
+           (resVer, hohFirst, hohLast, secondFamily, thirdFamily, fourthFamily, fifthFamily, address1, 
+           address2, city, state, zipcode, email, primaryphone, phonetype, secondaryphone, phonetype2, familymembers, 
+           delivery, christmasselection, numberofchildren, learn, othertext, contact, notes, completedby)
+           VALUES('$_GET[resVer]','$_GET[hohFirst]', '$_GET[hohLast]','$_GET[secondFamily]','$_GET[thirdFamily]',
+           '$_GET[fourthFamily]','$_GET[fifthFamily]','$_GET[address1]','$_GET[address2]',
+           '$_GET[city]','$_GET[state]','$_GET[zipcode]','$_GET[email]', 
+           '$_GET[primaryphone]','$_GET[phone1]','$_GET[secondaryphone]','$_GET[phone2]',
+           '$_GET[nummembers]','$_GET[delivery]','$_GET[storeSelection]','$_GET[kids]','$_GET[learnAbout]','$_GET[oLang]',
+           '$_GET[contact]', '$_GET[notes]', '$_GET[completed]')";
            if (!mysql_query($sql,$con))
 	{
-<<<<<<< HEAD
-	  die('Error: ' . mysql_error());
+	  die('Error4: ' . mysql_error());
 	}
-	  
-           mysql_close($con);
-=======
-	  die('Could not connect: ' . mysql_error());
-    }
-	 
-	 
 	mysql_close($con);
 
 	if ($_GET['storeSelection'] == 'toys')
 	{
 		header( 'Location: http://127.0.0.1/clothesform.php' ) ;
 	}
->>>>>>> origin/brandonworking
-} 
+}
 ?>
-<<<<<<< HEAD
-<html> 
-<body>
-<p>Residence Verification *</p><!--<br>-->
-<form action="RegistrationForm.php" method="get">
-<input type="radio" name="rv"<?php if (isset($rv) && $rv==1) echo "checked";?>
-value=1 >>Yes<br>
-<input type="radio" name="rv" <?php if (isset($rv) && $rv==0) echo "checked";?>
-value=0 >>No<br>
-<br>
-Type of household *<br><select name="typeofhousehold">
-=======
-
 <script>
 function changeHouseholdType()
 {
@@ -180,7 +173,6 @@ See Anne or Maryann if "no" and make notation*<br>
 
 Type of household *<br><select id="householdType" onChange="changeHouseholdType()">
 <option value="nullOpt"></option>
->>>>>>> origin/brandonworking
 <option value="single">Single Household</option>
 <option value="combined">Combined Household</option>
 </select><br><br>
@@ -233,20 +225,8 @@ value="work">>Work<br>
 value="other">>Other:<br>
 <input type="number" name="othertext2"><br>
 
-<<<<<<< HEAD
 Number of Family Members<input type="number" name="nummembers"><br>
-Language Spoken* <br><select name="LanguageSpoken">
-<option value="english">English</option>
-<option value="spanish">Spanish</option>
-</select><br>
-
-Language Spoken* <br><select name="LanguageSpoken">
-<option value="english">English</option>
-<option value="spanish">Spanish</option>
-</select><br>
-=======
-Number of Family Members<input type="number" name="othertext1"><br>
-Language spoken *<br><select id="spokenLang" onChange="changeLang()">
+Language spoken *<br><select name = "LanguageSpoken" id="spokenLang" onChange="changeLang()">
 <option value="eng">English</option>
 <option value="esp">Spanish</option>
 <option value="other">Other</option>
@@ -255,27 +235,24 @@ Language spoken *<br><select id="spokenLang" onChange="changeLang()">
 <div id= "otherLang" style="display: none;">
 <input type="text" id="otherLang"><br>
 Other Language*<br><br> </div>
->>>>>>> origin/brandonworking
 
-Delivery<br><input type="radio" name="delivery1" value="yes">Yes<br>
-<input type="radio" name="delivery2" value="no">No<br>
+Delivery<br><input type="radio" name="delivery" <?php if (isset($delivery) && $delivery=="yes") echo "checked";?>
+value="yes">>Yes<br>
+<input type="radio" name="delivery" <?php if (isset($delivery) && $delivery=="no") echo "checked";?>
+value="no">>No<br>
 <p>See Anne of Maryann if yes</p>
 
-<<<<<<< HEAD
-Christmas Store selection*<br><input type="radio" name="css1" value="yes">Yes<br>
-<input type="radio" name="css2" value="no">No<br>
-=======
 Christmas Store selection*<br>
 <input type="radio" name="storeSelection" id= "foodStore" value="food" onClick= "document.getElementById('toysInput').style.display= 'none'">Food<br>
 <input type="radio" name="storeSelection" id= "toyStore" value="toys" onClick= "document.getElementById('toysInput').style.display= 'inline'">Clothing & Toys<br>
->>>>>>> origin/brandonworking
+
 <p>(Clothing & Toys is for children 12 & under)</p>
 
 <div id= "toysInput" style="display: none;">
-<input type="number" id="numKids"><br>
+<input type="number" name = "kids" id="numKids"><br>
 Number of Children 12 & under*<br><br> </div>
 
-How did you learn about the Stores?* <br><select id="learn" onChange= "changeLearn()">
+How did you learn about the Stores?* <br><select id="learn" name = "learnAbout" onChange= "changeLearn()">
 <option value="previous">Previous Customer</option>
 <option value="flyer">Flyer</option>
 <option value="school">School</option>
@@ -284,29 +261,21 @@ How did you learn about the Stores?* <br><select id="learn" onChange= "changeLea
 </select><br>
 
 <div id= "otherLearn" style="display: none;">
-<input type="text" id="otherLang"><br>
+<input type="text" id="otherLang" name="oLang"><br>
 How did you learn about the store?*<br><br> </div>
 
 <b>Can a member of the St. Margaret Mary Church and Community Organization call you after the holidays to talk more about the needs and concerns of you and your family?*</b>
-<<<<<<< HEAD
-<br><input type="radio" name="can" <?php if (isset($can) && $can=="1") echo "checked";?>
-value="1">Yes<br>
-<input type="radio" name="can" <?php if (isset($can) && $can=="0") echo "checked";?>
-value="0">No<br>
-<p>(Clothing & Toys is for children 12 & under)</p>
 
-Notes: <input type="text" name="notes"><br>
-This Form was completed by* <input type="text" name="completed"><br>
-<input type="submit" name="submit">
-=======
 <br><input type="radio" name="contact" id= "contactY" value="true">Yes<br>
 <input type="radio" name="contact" id= "contactN" value="false">No<br>
 
 Notes: <input type="text" name="notes"><br>
 This Form was completed by* <input type="text" id= "completedBy" name="completed"><br>
 
-<input type="button" name="submitBtn" value="Submit" onClick="checkForm()"> 
->>>>>>> origin/brandonworking
+<input type="button" name="submitBtn" value="Submit" onClick="checkForm()">
+<input type="submit" name="submit"/> 
+
 </form>
 </body>
+
 </html>
