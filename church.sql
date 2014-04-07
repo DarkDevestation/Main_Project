@@ -110,7 +110,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = '		';
 
-CREATE TABLE IF NOT EXISTS 'stmargaretmarycatholicchurch'.`household2` (
+CREATE TABLE IF NOT EXISTS `stmargaretmarycatholicchurch`.`household2` (
   `idHouse` int(11) NOT NULL AUTO_INCREMENT,
   `resVer` varchar(25) NOT NULL,
   `hohFirst` varchar(45) NOT NULL,
@@ -143,20 +143,24 @@ CREATE TABLE IF NOT EXISTS 'stmargaretmarycatholicchurch'.`household2` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 CREATE TABLE IF NOT EXISTS `stmargaretmarycatholicchurch`.`childclothingform2` (
-  `idchildclothingform` INT(11) NOT NULL AUTO_INCREMENT,
-  `hohFirst` varchar(45) NOT NULL,
-  `hohLast` varchar(45) NOT NULL,
-  `childFirst` varchar(45) NOT NULL,
-  `childLast` varchar(45) NOT NULL,
-  `parentFirst` varchar(45) DEFAULT NULL,
-  `parentLast` varchar(45) DEFAULT NULL,
-  `idclothingitem_infantoutfit` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_jeans` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_shirt` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_socks` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_underwear` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_diapersorpullups` INT(11) NULL DEFAULT NULL,
-  )
+ `idchildclothingform` INT(11) NOT NULL AUTO_INCREMENT,
+ `hohFirst` varchar(45) NOT NULL,
+ `hohLast` varchar(45) NOT NULL,
+ `parentFirst` varchar(45) DEFAULT NULL,
+ `parentLast` varchar(45) DEFAULT NULL,
+ `childFirst` varchar(45) NOT NULL,
+ `childLast` varchar(45) NOT NULL,
+ `childId` enum('yes','no') DEFAULT NULL,
+ `childSex` enum('girl','boy','unknown') DEFAULT NULL,
+ `childAge` enum('newborn','1','2','3','4','5','6','7','8','9','10','11','12') DEFAULT NULL,
+ `idclothingitem_infantoutfit` INT(11) NULL DEFAULT NULL,
+ `idclothingitem_jeans` INT(11) NULL DEFAULT NULL,
+ `idclothingitem_shirt` INT(11) NULL DEFAULT NULL,
+ `idclothingitem_socks` INT(11) NULL DEFAULT NULL,
+ `idclothingitem_underwear` INT(11) NULL DEFAULT NULL,
+ `idclothingitem_diapersorpullups` INT(11) NULL DEFAULT NULL,
+ PRIMARY KEY (`idchildclothingform`)
+ ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
 -- -----------------------------------------------------
 -- Table `stmargaretmarycatholicchurch`.`gender`
 -- -----------------------------------------------------
