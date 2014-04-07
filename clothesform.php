@@ -218,6 +218,80 @@ function checkForm()
 	</div>
 	
 	<div id= "boyType" style="display: none;">
+		<input type="radio" id="boy" name="boyOutfitType" value="baby" onClick= "document.getElementById('infantBoyType').style.display= 'inline';
+		 document.getElementById('kidBoyType').style.display= 'none'">Boy's Infant Outfit<br>
+		
+		<input type="radio" id= "boy" name="boyOutfitType" value="kid" onClick= "document.getElementById('kidBoyType').style.display= 'inline';
+		 document.getElementById('infantBoyType').style.display= 'none'">Boy's Jeans and Shirt<br><br>
+		
+		<div id= "infantBoyType" style="display: none;">
+			<input type="radio" id="standardInfantBoy" name="infantBoyType" value="baby" onClick= "document.getElementById('infantBoySize').style.display= 'inline';
+			 document.getElementById('infantBoySpecial').style.display= 'none'">Boy's Infant Outfit<br>
+			<input type="radio" id= "specialInfantBoy" name="infantBoyType" value="kid" onClick= "document.getElementById('infantBoySpecial').style.display= 'inline';
+			 document.getElementById('infantBoySize').style.display= 'none'">Special Request Infant Outfit<br><br>
+			
+			<div id= "infantBoySize" style="display: none;">
+				<select id="infantBoySizeSelect" onChange="infantBoySize()">
+				<option value="G01">G01- Boy's Newborn Outfit</option>
+				<option value="G02">G02- Boy's Infant Outfit, 3 Months</option>
+				<option value="G03">G03- Boy's Infant Outfit, 6 Months</option>
+				<option value="G04">G04- Boy's Infant Outfit, 9 Months</option>
+				<option value="G05">G05- Boy's Infant Outfit, 12 Months</option>
+				<option value="G06">G06- Boy's Infant Outfit, 18 Months</option>
+				<option value="G07">G07- Boy's Infant Outfit, 24 Months</option>
+				<option value="G08">G08- Boy's Infant Outfit, Declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "infantBoySpecial" style="display: none;">
+				Special Request Boy's Infant Outfit
+				<input type="text" id="infantBoySpecialText" name="infantBoySpecialText">
+			</div>
+		</div>
+		
+		<div id= "kidBoyType" style="display: none;">
+			<input type="radio" id="standardKidBoy" name="kidBoyType" value="baby" onClick= "document.getElementById('kidBoySize').style.display= 'inline';
+			 document.getElementById('kidBoySpecial').style.display= 'none'">Boy's Jeans<br>
+			<input type="radio" id= "specialKidBoy" name="kidBoyType" value="kid" onClick= "document.getElementById('kidBoySpecial').style.display= 'inline';
+			 document.getElementById('kidBoySize').style.display= 'none'">Boy's Special Request Item (Jeans)<br>
+			 check boy's jeans if item declined<br><br>
+			
+			<div id= "kidBoySize" style="display: none;">
+				<select id="kidBoySizeSelect" onChange="kidBoySize()">
+				<option value="H01">H01- Toddler Boy's Jeans, 2T</option>
+				<option value="H02">H02- Toddler Boy's Jeans, 3T</option>
+				<option value="H03">H03- Boy's Jeans, Regular 4T/4</option>
+				<option value="H04">H04- Boy's Jeans, Regular 5T/5</option>
+				<option value="H07">H07- Boy's Jeans, Regular 6</option>
+				<option value="H08">H08- Boy's Jeans, Regular 7</option>
+				<option value="H09">H09- Boy's Jeans, Regular 8</option>
+				<option value="H12">H12- Boy's Jeans, Regular 14</option>
+				<option value="H14">H14- Boy's Jeans, Regular 16</option>
+				<option value="H16">H14- Boy's Jeans, Regular 18</option>
+				<option value="H15">H15- Boy's Jeans, Slim 4</option>
+				<option value="H16">H16- Boy's Jeans, Slim 5</option>
+				<option value="H17">H17- Boy's Jeans, Slim 6</option>
+				<option value="H18">H18- Boy's Jeans, Slim 7</option>
+				<option value="H19">H19- Boy's Jeans, Slim 8</option>
+				<option value="H20">H20- Boy's Jeans, Slim 10</option>
+				<option value="H21">H21- Boy's Jeans, Slim 12</option>
+				<option value="H22">H22- Boy's Jeans, Slim 14</option>
+				<option value="H23">H23- Boy's Jeans, Slim 16</option>
+				<option value="H24">H24- Boy's Jeans, Slim 18</option>
+				<option value="H25">H25- Boy's Jeans, Husky 10/28</option>
+				<option value="H26">H26- Boy's Jeans, Husky 12/29</option>
+				<option value="H27">H27- Boy's Jeans, Plus 14/30</option>
+				<option value="H28">H28- Boy's Jeans, Plus 16/31</option>
+				<option value="H29">H29- Boy's Jeans, Plus 18/32</option>
+				<option value="H31">H31- Boy's Jeans Declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidBoySpecial" style="display: none;">
+				Special Request Boy's Kid Outfit
+				<input type="text" id="kidBoySpecialText" name="kidBoySpecialText">
+			</div>
+		</div>
 	</div>
 	
 	<h2>Age*</h2>
