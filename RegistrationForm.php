@@ -10,13 +10,10 @@ if(isset($_GET['submit']))
 	 
 	 
 	mysql_close($con);
-	
-	if ($_GET['allowAdvance'] == 'true')
+
+	if ($_GET['storeSelection'] == 'toys')
 	{
-		if ($_GET['storeSelection'] == 'toys')
-		{
-			header( 'Location: http://127.0.0.1/clothesform.php' ) ;
-		}
+		header( 'Location: http://127.0.0.1/clothesform.php' ) ;
 	}
 } 
 
@@ -65,7 +62,7 @@ function changeLearn()
 
 function checkForm()
 {
-	boolean formCorrect= true;
+	formCorrect= true;
 	
 	// since it's a radio, and can only return true when both are unchecked.
 	if (document.getElementById('resVerY').checked && document.getElementById('resVerN').checked)
@@ -108,27 +105,24 @@ function checkForm()
 	if (formCorrect == false)
 	{
 		document.getElementById('formCorrect').style.display= 'inline';
-		
-		document.getElementById('allowAdvance').value= false;
 	}
 	else
 	{
-		document.getElementById('allowAdvance').value= true;
+		document.getElementById("registration").submit();
 	}
 }
 </script>
 
 <html> 
 <body>
-<p>Residence Verification *</p><!--<br>-->
-<form action="RegistrationForm.php" method="get">
 
-<input id= "allowAdvance" name= "allowAdvance" style="display: none;"></input>
+<form id="registration" action="RegistrationForm.php" method="get">
  
 <div id= "formCorrect" style="display: none;">
 Please ensure that you've filled out all required sections.<br>
 </div>
 
+<p>Residence Verification *</p>
 <input type="radio" name="resVer" id="resVerY" value="true" onClick= "document.getElementById('resVerNo').style.display= 'none'">Yes<br>
 <input type="radio" name="resVer" id="resVerN" value="false" onClick= "document.getElementById('resVerNo').style.display= 'inline'">No<br>
 
@@ -199,8 +193,8 @@ Delivery<br><input type="radio" name="delivery" value="true">Yes<br>
 <p>See Anne of Maryann if yes</p>
 
 Christmas Store selection*<br>
-<input type="radio" name="storeSelection" value="food" onClick= "document.getElementById('toysInput').style.display= 'none'">Food<br>
-<input type="radio" name="storeSelection" value="toys" onClick= "document.getElementById('toysInput').style.display= 'inline'">Clothing & Toys<br>
+<input type="radio" name="storeSelection" id= "foodStore" value="food" onClick= "document.getElementById('toysInput').style.display= 'none'">Food<br>
+<input type="radio" name="storeSelection" id= "toyStore" value="toys" onClick= "document.getElementById('toysInput').style.display= 'inline'">Clothing & Toys<br>
 <p>(Clothing & Toys is for children 12 & under)</p>
 
 <div id= "toysInput" style="display: none;">
@@ -226,7 +220,7 @@ How did you learn about the store?*<br><br> </div>
 Notes: <input type="text" name="notes"><br>
 This Form was completed by* <input type="text" id= "completedBy" name="completed"><br>
 
-<input type="submit" name="submit" value="Submit" onClick="checkForm()"> 
+<input type="button" name="submitBtn" value="Submit" onClick="checkForm()"> 
 </form>
 </body>
 </html>
