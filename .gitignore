@@ -202,3 +202,7 @@ xampp
 *.gif
 *.png
 bitnami.css
+applications.html
+*.ico
+index.html
+index.php
