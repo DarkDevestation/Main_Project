@@ -1,4 +1,6 @@
-Main Project
+Thanksgiving and Christmas Stores
+COP 4710
+Group 4: Brandon Forster and Patrick Delva
 ======
 
-Words about what the project does go here.
+Create an Apache server and MySQL server on localhost. Load church.sql into your MySQL server. Load the two php files onto your server, navigate to registrationform.php and use the program.
