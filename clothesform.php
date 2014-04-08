@@ -165,12 +165,12 @@ function checkForm()
 			</div>
 		</div>
 		
-		<div id= "kidGirlTypeJeans" style="display: none;">
+		<div id= "kidGirlType" style="display: none;">
 			<input type="radio" id="standardKidGirlJeans" name="kidGirlTypeJeans" value="baby" onClick= "document.getElementById('kidGirlSizeJeans').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialJeans').style.display= 'none'">Girl's Jeans<br>
 			<input type="radio" id= "specialKidGirlJeans" name="kidGirlTypeJeans" value="kid" onClick= "document.getElementById('kidGirlSpecialJeans').style.display= 'inline';
 			 document.getElementById('kidGirlSizeJeans').style.display= 'none'">Girl's Special Request Item (Jeans, Skirt, Dress)<br>
-			 check girl's jeans if item declined<br><br>
+			<br><br>
 			
 			<div id= "kidGirlSizeJeans" style="display: none;">
 				<select id="kidGirlSizeSelectJeans" onChange="kidGirlSizeJeans()">
@@ -216,13 +216,12 @@ function checkForm()
 			<div id= "kidGirlSpecialJeans" style="display: none;">
 				Special Request Girl's Kid Outfit
 				<input type="text" id="kidGirlSpecialTextJeans" name="kidGirlSpecialTextJeans">
+				<br><br>
 			</div>
-		</div>
-		
-		<div id= "kidGirlTypeShirt" style="display: none;">
-			<input type="radio" id="standardKidGirlShirt" name="kidGirlTypeShirt" value="baby" onClick= "document.getElementById('kidGirlSizeShirt').style.display= 'inline';
+			
+			<input type="radio" id="standardKidGirl" name="kidGirlTypeShirt" value="baby" onClick= "document.getElementById('kidGirlSizeShirt').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialShirt').style.display= 'none'">Girl's Shirts<br>
-			<input type="radio" id= "specialKidGirlShirt" name="kidGirlTypeShirt" value="kid" onClick= "document.getElementById('kidGirlSpecialShirt').style.display= 'inline';
+			<input type="radio" id= "specialKidGirl" name="kidGirlTypeShirt" value="kid" onClick= "document.getElementById('kidGirlSpecialShirt').style.display= 'inline';
 			 document.getElementById('kidGirlSizeShirt').style.display= 'none'">Girl's Special Request Item (Shirt)<br>
 			 check girl's shirts if item is declined and decline if dress is chosen<br><br>
 			
@@ -253,11 +252,10 @@ function checkForm()
 			<div id= "kidGirlSpecialShirt" style="display: none;">
 				Girl's Shirts Special Request Items
 				<input type="text" id="kidGirlSpecialTextShirt" name="kidGirlSpecialTextShirt">
+				<br><br>
 			</div>
-		</div>
-		
-		<div id= "kidGirlTypeSocks" style="display: none;">
-			<input type="radio" id="standardKidGirlSocks" name="kidGirlTypeSocks" value="baby" onClick= "document.getElementById('kidGirlSizeSocks').style.display= 'inline';
+			
+			<input type="radio" id="standardKidGirl" name="kidGirlTypeSocks" value="baby" onClick= "document.getElementById('kidGirlSizeSocks').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialSocks').style.display= 'none'">Girl's Socks<br>
 			<input type="radio" id= "specialKidGirlSocks" name="kidGirlTypeSocks" value="kid" onClick= "document.getElementById('kidGirlSpecialSocks').style.display= 'inline';
 			 document.getElementById('kidGirlSizeSocks').style.display= 'none'">Girl's Special Request Item (socks)<br>
@@ -279,18 +277,17 @@ function checkForm()
 			</div>
 			
 			<div id= "kidGirlSpecialSocks" style="display: none;">
-				Girl's Socks Special Request Items
+				Girl's Socks Special Request Item
 				<input type="text" id="kidGirlSpecialTextSocks" name="kidGirlSpecialTextSocks">
+				<br><br>
 			</div>
-		</div>
-		
-		<div id= "kidGirlTypeUnder" style="display: none;">
-			<input type="radio" id="standardKidGirlUnder" name="kidGirlTypeUnder" value="baby" onClick= "document.getElementById('kidGirlSizeUnder').style.display= 'inline';
-			 document.getElementById('kidGirlSpecialUnder').style.display= 'none'">Girl's Underwear<br>
-			 <input type="radio" id="standardKidGirlPull" name="kidGirlTypePull" value="baby" onClick= "document.getElementById('kidGirlSizePull').style.display= 'inline';
-			 document.getElementById('kidGirlSpecialPull').style.display= 'none'">Girl's Diapers and Pullups<br>
-			<input type="radio" id= "specialKidGirlUnder" name="kidGirlTypeUnder" value="kid" onClick= "document.getElementById('kidGirlSpecialUnder').style.display= 'inline';
-			 document.getElementById('kidGirlSizeUnder').style.display= 'none'">Girl's Special Request Item (underwear/diapers)<br>
+			
+			<input type="radio" id="standardKidGirl" name="kidGirlTypeUnder" value="baby" onClick= "document.getElementById('kidGirlSizeUnder').style.display= 'inline';
+			 document.getElementById('kidGirlSpecialUnder').style.display= 'none'; document.getElementById('kidGirlSizePull').style.display= 'none'">Girl's Underwear<br>
+			 <input type="radio" id="standardKidGirl" name="kidGirlTypeUnder" value="baby" onClick= "document.getElementById('kidGirlSizePull').style.display= 'inline';
+			 document.getElementById('kidGirlSpecialUnder').style.display= 'none'; document.getElementById('kidGirlSizeUnder').style.display= 'none'">Girl's Diapers and Pullups<br>
+			<input type="radio" id= "specialKidGirl" name="kidGirlTypeUnder" value="kid" onClick= "document.getElementById('kidGirlSpecialUnder').style.display= 'inline';
+			 document.getElementById('kidGirlSizePull').style.display= 'none'; document.getElementById('kidGirlSizeUnder').style.display= 'none'">Girl's Special Request Item (underwear/diapers)<br>
 			 check girl's underwear of diapers box if item is declined<br><br>
 			
 			<div id= "kidGirlSizeUnder" style="display: none;">
@@ -329,8 +326,9 @@ function checkForm()
 			</div>
 			
 			<div id= "kidGirlSpecialUnder" style="display: none;">
-				Girl's Socks Special Request Items
+				Girl's Special Request (underwear/diapers)
 				<input type="text" id="kidGirlSpecialTextUnder" name="kidGirlSpecialTextUnder">
+				<br><br>
 			</div>
 		</div>
 	</div>
