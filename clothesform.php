@@ -15,20 +15,26 @@ if(isset($_GET['submit']))
     }
 	 
 	mysql_select_db("stmargaretmarycatholicchurch", $con);
-	 
-	$sql="INSERT INTO family (firstname, lastname, headofhousehold)
-	VALUES
-	('$_GET[hohFirst]','$_GET[hohLast]',1)";
-	 
-	if (!mysql_query($sql,$con))
-	{
-	  die('Error: ' . mysql_error());
-	}
-	  
-	  	$sql="INSERT INTO family (firstname, lastname, headofhousehold)
-	VALUES
-	('$_POST[parentFirst]','$_POST[parentLast]', 0)";
-	 
+
+$sql="INSERT INTO childclothingform2(hohFirst, hohLast, parentFirst, parentLast, childFirst, childLast, childId, childIdNoNotes, childSex, 
+    girlOutfitType, infantGirlType, infantGirlSize, infantGirlSpecialText, kidGirlTypeJeans, kidGirlSizeSelectJeans, kidGirlSpecialTextJeans, kidGirlTypeShirt, 
+    kidGirlSizeSelectShirt, kidGirlSpecialTextShirt, kidGirlTypeSocks, kidGirlSizeSelectSocks, kidGirlSpecialTextSocks, 
+    kidGirlTypeUnder, kidGirlSizeSelectUnder, kidGirlSizeSelectPull, kidGirlSpecialTextUnder, boyOutfitType, infantBoyType, infantBoySize, 
+    infantBoySpecialText, kidBoyType, kidBoySize, kidBoySpecialTextJeans, kidBoyTypeShirt, kidBoySizeSelectShirt, kidBoySpecialTextShirt, kidBoyTypeSocks, 
+    kidBoySizeSelectSocks, kidBoySpecialTextSocks, kidBoyTypeUnder, kidBoySizeSelectUnder, kidBoySizeSelectPull, kidBoySpecialTextUnder, 
+    unisexOutfitType, unisexSelectOutfit, unisexSelectSocks, unisexSelectUnder, childAge, another, notes, review, completedBy)
+	VALUES('$_GET[hohFirst]','$_GET[hohLast]','$_GET[parentFirst]','$_GET[parentLast]','$_GET[childFirst]','$_GET[childLast]','$_GET[childID]','$_GET[childIDNoNotes]',
+    '$_GET[sex]','$_GET[girlOutfitType]','$_GET[infantGirlType]','$_GET[infantGirlSize]','$_GET[infantGirlSpecialText]',
+    '$_GET[kidGirlTypeJeans]','$_GET[kidGirlSizeSelectJeans]','$_GET[kidGirlSpecialTextJeans]','$_GET[kidGirlTypeShirt]',
+    '$_GET[kidGirlSizeSelectShirt]','$_GET[kidGirlSpecialTextShirt]','$_GET[kidGirlTypeSocks]','$_GET[kidGirlSizeSelectSocks]','$_GET[kidGirlSpecialTextSocks]',
+    '$_GET[kidGirlTypeUnder]','$_GET[kidGirlSizeSelectUnder]','$_GET[kidGirlSizeSelectPull]','$_GET[kidGirlSpecialTextUnder]','$_GET[boyOutfitType]','$_GET[infantBoyType]',
+    '$_GET[infantBoySize]','$_GET[infantBoySpecialText]','$_GET[kidBoyType]','$_GET[kidBoySize]','$_GET[kidBoySpecialTextJeans]',
+    '$_GET[kidBoyTypeShirt]','$_GET[kidBoySizeSelectShirt]','$_GET[kidBoySpecialTextShirt]','$_GET[kidBoyTypeSocks]','$_GET[kidBoySizeSelectSocks]',
+    '$_GET[kidBoySpecialTextSocks]','$_GET[kidBoyTypeUnder]','$_GET[kidBoySizeSelectUnder]','$_GET[kidBoySizeSelectPull]','$_GET[kidBoySpecialTextUnder]',
+    '$_GET[unisexOutfitType]','$_GET[unisexSelectOutfit]','$_GET[unisexSelectSocks]','$_GET[unisexSelectUnder]','$_GET[childAge]','$_GET[another]',
+    '$_GET[notes]','$_GET[review]','$_GET[completedBy]')";
+
+
 	if (!mysql_query($sql,$con))
 	{
 	  die('Error: ' . mysql_error());
@@ -150,7 +156,7 @@ function checkForm()
 			 document.getElementById('infantGirlSize').style.display= 'none'">Special Request Infant Outfit<br><br>
 			
 			<div id= "infantGirlSize" style="display: none;">
-				<select id="infantGirlSizeSelect" onChange="infantGirlSize()">
+				<select id="infantGirlSizeSelect" onChange="infantGirlSize()"name="infantGirlSize">
 				<option value="A01">A01- Girl's Newborn Outfit</option>
 				<option value="A02">A02- Girl's Infant Outfit, 3 Months</option>
 				<option value="A03">A03- Girl's Infant Outfit, 6 Months</option>
@@ -177,7 +183,7 @@ function checkForm()
 			<br><br>
 			
 			<div id= "kidGirlSizeJeans" style="display: none;">
-				<select id="kidGirlSizeSelectJeans" onChange="kidGirlSizeJeans()">
+				<select id="kidGirlSizeSelectJeans" onChange="kidGirlSizeJeans()"name="kidGirlSizeSelectJeans">
 				<option value="B01">B01- Toddler Girl's Jeans, 2T</option>
 				<option value="B02">B02- Toddler Girl's Jeans, 3T</option>
 				<option value="B03">B03- Girl's Jeans, Regular 4T/4</option>
@@ -231,7 +237,7 @@ function checkForm()
 			 check girl's shirts if item is declined and decline if dress is chosen<br><br>
 			
 			<div id= "kidGirlSizeShirt" style="display: none;">
-				<select id="kidGirlSizeSelectShirt" onChange="kidGirlSizeShirt()">
+				<select id="kidGirlSizeSelectShirt" onChange="kidGirlSizeShirt()"name="kidGirlSizeSelectShirt">
 				<option value="C01">C01- Toddler Girl's Shirt, 2T</option>
 				<option value="C02">C02- Toddler Girl's Shirt, 3T</option>
 				<option value="C03">C03- Toddler Girl's Shirt, 4T</option>
@@ -268,7 +274,7 @@ function checkForm()
 			 check girl's socks if item is declined<br><br>
 			
 			<div id= "kidGirlSizeSocks" style="display: none;">
-				<select id="kidGirlSizeSelectSocks" onChange="kidGirlSizeSocks()">
+				<select id="kidGirlSizeSelectSocks" onChange="kidGirlSizeSocks()"name="kidGirlSizeSelectSocks">
 				<option value="D01">D01- Infant Girl Socks, 6-12 months</option>
 				<option value="D02">D02- Infant Girl Socks, 12-24 months</option>
 				<option value="D03">D03- Toddler Girl Socks, 2-3 T</option>
@@ -299,7 +305,7 @@ function checkForm()
 			 check girl's underwear or diapers box if item is declined<br><br>
 			
 			<div id= "kidGirlSizeUnder" style="display: none;">
-				<select id="kidGirlSizeSelectUnder" onChange="kidGirlSizeUnder()">
+				<select id="kidGirlSizeSelectUnder" onChange="kidGirlSizeUnder()"name="kidGirlSizeSelectUnder">
 				<option value="E01">E01- Toddler Girl's Underwear, 2T/3T</option>
 				<option value="E02">E02- Toddler Girl's Underwear, 4T</option>
 				<option value="E03">E03- Girl's Underwear, 4</option>
@@ -320,7 +326,7 @@ function checkForm()
 			</div>
 			
 			<div id= "kidGirlSizePull" style="display: none;">
-				<select id="kidGirlSizeSelectPull" onChange="kidGirlSizePull()">
+				<select id="kidGirlSizeSelectPull" onChange="kidGirlSizePull()"name="kidGirlSizeSelectPull">
 				<option value="F01">F01- Size 1 diapers, 8-14 lbs</option>
 				<option value="F02">F02- Size 2 diapers, 12-18 lbs</option>
 				<option value="F03">F03- Size 3 diapers, 16-28 lbs</option>
@@ -383,7 +389,7 @@ function checkForm()
 			 check boy's jeans if item declined<br><br>
 			
 			<div id= "kidBoySize" style="display: none;">
-				<select id="kidBoySizeSelect" onChange="kidBoySize()">
+				<select id="kidBoySizeSelect" onChange="kidBoySize()"name="kidBoySize">
 				<option value="H01">H01- Toddler Boy's Jeans, 2T</option>
 				<option value="H02">H02- Toddler Boy's Jeans, 3T</option>
 				<option value="H03">H03- Boy's Jeans, Regular 4T/4</option>
@@ -426,7 +432,7 @@ function checkForm()
 			 type in boy's shirts if item is declined<br><br>
 			
 			<div id= "kidBoySizeShirt" style="display: none;">
-				<select id="kidBoySizeSelectShirt" onChange="kidBoySizeShirt()">
+				<select id="kidBoySizeSelectShirt" onChange="kidBoySizeShirt()"name="kidBoySizeSelectShirt">
 				<option value="J01">J01- Toddler Boy's Shirts, 2T</option>
 				<option value="J02">J02- Toddler Boy's Shirts, 3T</option>
 				<option value="J03">J03- Toddler Boy's Shirts, 4T</option>
@@ -460,7 +466,7 @@ function checkForm()
 			 check Boy's socks if item is declined<br><br>
 			
 			<div id= "kidBoySizeSocks" style="display: none;">
-				<select id="kidBoySizeSelectSocks" onChange="kidBoySizeSocks()">
+				<select id="kidBoySizeSelectSocks" onChange="kidBoySizeSocks()"name="kidBoySizeSelectSocks">
 				<option value="K01">K01- Infant Boy Socks, 6-12 months</option>
 				<option value="K02">K02- Infant Boy Socks, 12-24 months</option>
 				<option value="K03">K03- Toddler Boy Socks, 2-3 T</option>
@@ -491,7 +497,7 @@ function checkForm()
 			 type in underwear or diapers if item is declined<br><br>
 			
 			<div id= "kidBoySizeUnder" style="display: none;">
-				<select id="kidBoySizeSelectUnder" onChange="kidBoySizeUnder()">
+				<select id="kidBoySizeSelectUnder" onChange="kidBoySizeUnder()"name="kidBoySizeSelectUnder">
 				<option value="L01">L01- Toddler Boy's Underwear, 2T/3T</option>
 				<option value="L02">L02- Toddler Boy's Underwear, 4T</option>
 				<option value="L04">L04- Boy's Underwear, Small</option>
@@ -508,7 +514,7 @@ function checkForm()
 			</div>
 			
 			<div id= "kidBoySizePull" style="display: none;">
-				<select id="kidBoySizeSelectPull" onChange="kidBoySizePull()">
+				<select id="kidBoySizeSelectPull" onChange="kidBoySizePull()"name="kidBoySizeSelectPull">
 				<option value="F01">F01- Size 1 diapers, 8-14 lbs</option>
 				<option value="F02">F02- Size 2 diapers, 12-18 lbs</option>
 				<option value="F03">F03- Size 3 diapers, 16-28 lbs</option>
@@ -535,20 +541,20 @@ function checkForm()
 		type infant outfit, socks or diaper if is declined<br><br>
 		
 		<div id= "unisexInfantType" style="display: none;">
-				<select id="unisexSelectOutfit" onChange="unisexInfantType()">
+				<select id="unisexSelectOutfit" onChange="unisexInfantType()"name="unisexSelectOutfit">
 				<option value="N01">N01- Unisex newborn</option>
 				<option value="N02">N02- Unisex 3 Months</option>
 				<option value="N03">N03- Unisex 6 months</option>
 				<option value="N04">N04- Unisex infant outfit declined</option>
 				</select><br><br>
 				
-				<select id="unisexSelectSocks" onChange="unisexInfantType()">
+				<select id="unisexSelectSocks" onChange="unisexInfantType()" name="unisexSelectSocks">
 				<option value="P01">P01- Unisex socks, 6-12 months</option>
 				<option value="P02">P02- Unisex socks, 12-24 months</option>
 				<option value="P03">P03- Unisex socks declined</option>
 				</select><br><br>
 				
-				<select id="unisexSelectUnder" onChange="unisexInfantType()">
+				<select id="unisexSelectUnder" onChange="unisexInfantType()"name="unisexSelectUnder">
 				<option value="F01">F01- Size 1 diapers, 8-14 lbs</option>
 				<option value="F02">F02- Size 2 diapers, 12-18 lbs</option>
 				<option value="F03">F03- Size 3 diapers, 16-28 lbs</option>

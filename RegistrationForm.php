@@ -272,8 +272,7 @@ How did you learn about the store?*<br><br> </div>
 Notes: <input type="text" name="notes"><br>
 This Form was completed by* <input type="text" id= "completedBy" name="completed"><br>
 
-<input type="button" name="submitBtn" value="Submit" onClick="checkForm()">
-<input type="submit" name="submit"/> 
+<input type="button" name="submitBtn" value="submit" onClick="checkForm()">
 
 </form>
 </body>
