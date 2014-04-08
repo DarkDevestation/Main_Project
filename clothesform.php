@@ -93,6 +93,9 @@ function checkForm()
 </script>
 
 <html>
+	<head>
+		<title>Clothes Form</title>
+	</head>
 	<body>
 	
 	<form id="clothes" action="clothesform.php" method="get">
@@ -162,15 +165,15 @@ function checkForm()
 			</div>
 		</div>
 		
-		<div id= "kidGirlType" style="display: none;">
-			<input type="radio" id="standardKidGirl" name="kidGirlType" value="baby" onClick= "document.getElementById('kidGirlSize').style.display= 'inline';
-			 document.getElementById('kidGirlSpecial').style.display= 'none'">Girl's Jeans<br>
-			<input type="radio" id= "specialKidGirl" name="kidGirlType" value="kid" onClick= "document.getElementById('kidGirlSpecial').style.display= 'inline';
-			 document.getElementById('kidGirlSize').style.display= 'none'">Girl's Special Request Item (Jeans, Skirt, Dress)<br>
+		<div id= "kidGirlTypeJeans" style="display: none;">
+			<input type="radio" id="standardKidGirlJeans" name="kidGirlTypeJeans" value="baby" onClick= "document.getElementById('kidGirlSizeJeans').style.display= 'inline';
+			 document.getElementById('kidGirlSpecialJeans').style.display= 'none'">Girl's Jeans<br>
+			<input type="radio" id= "specialKidGirlJeans" name="kidGirlTypeJeans" value="kid" onClick= "document.getElementById('kidGirlSpecialJeans').style.display= 'inline';
+			 document.getElementById('kidGirlSizeJeans').style.display= 'none'">Girl's Special Request Item (Jeans, Skirt, Dress)<br>
 			 check girl's jeans if item declined<br><br>
 			
-			<div id= "kidGirlSize" style="display: none;">
-				<select id="kidGirlSizeSelect" onChange="kidGirlSize()">
+			<div id= "kidGirlSizeJeans" style="display: none;">
+				<select id="kidGirlSizeSelectJeans" onChange="kidGirlSizeJeans()">
 				<option value="B01">B01- Toddler Girl's Jeans, 2T</option>
 				<option value="B02">B02- Toddler Girl's Jeans, 3T</option>
 				<option value="B03">B03- Girl's Jeans, Regular 4T/4</option>
@@ -210,9 +213,124 @@ function checkForm()
 				</select><br><br>
 			</div>
 			
-			<div id= "kidGirlSpecial" style="display: none;">
+			<div id= "kidGirlSpecialJeans" style="display: none;">
 				Special Request Girl's Kid Outfit
-				<input type="text" id="kidGirlSpecialText" name="kidGirlSpecialText">
+				<input type="text" id="kidGirlSpecialTextJeans" name="kidGirlSpecialTextJeans">
+			</div>
+		</div>
+		
+		<div id= "kidGirlTypeShirt" style="display: none;">
+			<input type="radio" id="standardKidGirlShirt" name="kidGirlTypeShirt" value="baby" onClick= "document.getElementById('kidGirlSizeShirt').style.display= 'inline';
+			 document.getElementById('kidGirlSpecialShirt').style.display= 'none'">Girl's Shirts<br>
+			<input type="radio" id= "specialKidGirlShirt" name="kidGirlTypeShirt" value="kid" onClick= "document.getElementById('kidGirlSpecialShirt').style.display= 'inline';
+			 document.getElementById('kidGirlSizeShirt').style.display= 'none'">Girl's Special Request Item (Shirt)<br>
+			 check girl's shirts if item is declined and decline if dress is chosen<br><br>
+			
+			<div id= "kidGirlSizeShirt" style="display: none;">
+				<select id="kidGirlSizeSelectShirt" onChange="kidGirlSizeShirt()">
+				<option value="C01">C01- Toddler Girl's Shirt, 2T</option>
+				<option value="C02">C02- Toddler Girl's Shirt, 3T</option>
+				<option value="C03">C03- Toddler Girl's Shirt, 4T</option>
+				<option value="C04">C04- Toddler Girl's Shirt, 5T</option>
+				<option value="C05">C05- Girl's Shirt, XS</option>
+				<option value="C06">C06- Girl's Shirt, Small</option>
+				<option value="C07">C07- Girl's Shirt, Medium</option>
+				<option value="C08">C08- Girl's Shirt, Large</option>
+				<option value="C09">C09- Girl's Shirt, XL</option>
+				<option value="C10">C10- Girl's Juniors Shirt, Small</option>
+				<option value="C11">C11- Girl's Juniors Shirt, Medium</option>
+				<option value="C12">C12- Girl's Juniors Shirt, Large</option>
+				<option value="C13">C13- Girl's Juniors Shirt, Extra Large</option>
+				<option value="C14">C14- Women's Shirt, Small</option>
+				<option value="C15">C15- Women's Shirt, Medium</option>
+				<option value="C16">C16- Women's Shirt, Large</option>
+				<option value="C17">C17- Women's Shirt, XL</option>
+				<option value="C18">C18- Women's Shirt, XXL</option>
+				<option value="C19">C19- Girl's shirts declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidGirlSpecialShirt" style="display: none;">
+				Girl's Shirts Special Request Items
+				<input type="text" id="kidGirlSpecialTextShirt" name="kidGirlSpecialTextShirt">
+			</div>
+		</div>
+		
+		<div id= "kidGirlTypeSocks" style="display: none;">
+			<input type="radio" id="standardKidGirlSocks" name="kidGirlTypeSocks" value="baby" onClick= "document.getElementById('kidGirlSizeSocks').style.display= 'inline';
+			 document.getElementById('kidGirlSpecialSocks').style.display= 'none'">Girl's Socks<br>
+			<input type="radio" id= "specialKidGirlSocks" name="kidGirlTypeSocks" value="kid" onClick= "document.getElementById('kidGirlSpecialSocks').style.display= 'inline';
+			 document.getElementById('kidGirlSizeSocks').style.display= 'none'">Girl's Special Request Item (socks)<br>
+			 check girl's socks if item is declined<br><br>
+			
+			<div id= "kidGirlSizeSocks" style="display: none;">
+				<select id="kidGirlSizeSelectSocks" onChange="kidGirlSizeSocks()">
+				<option value="D01">D01- Infant Girl Socks, 6-12 months</option>
+				<option value="D02">D02- Infant Girl Socks, 12-24 months</option>
+				<option value="D03">D03- Toddler Girl Socks, 2-3 T</option>
+				<option value="D04">D04- Toddler Girl Socks, 4-5 T</option>
+				<option value="D05">D05- Girl's Socks, Small</option>
+				<option value="D06">D06- Girl's Socks, Medium</option>
+				<option value="D07">D07- Girl's Socks, Large</option>
+				<option value="D08">D08- Women's Socks, 5-9</option>
+				<option value="D09">D09- Women's Socks, 8-12</option>
+				<option value="D10">D10- girl's socks declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidGirlSpecialSocks" style="display: none;">
+				Girl's Socks Special Request Items
+				<input type="text" id="kidGirlSpecialTextSocks" name="kidGirlSpecialTextSocks">
+			</div>
+		</div>
+		
+		<div id= "kidGirlTypeUnder" style="display: none;">
+			<input type="radio" id="standardKidGirlUnder" name="kidGirlTypeUnder" value="baby" onClick= "document.getElementById('kidGirlSizeUnder').style.display= 'inline';
+			 document.getElementById('kidGirlSpecialUnder').style.display= 'none'">Girl's Underwear<br>
+			 <input type="radio" id="standardKidGirlPull" name="kidGirlTypePull" value="baby" onClick= "document.getElementById('kidGirlSizePull').style.display= 'inline';
+			 document.getElementById('kidGirlSpecialPull').style.display= 'none'">Girl's Diapers and Pullups<br>
+			<input type="radio" id= "specialKidGirlUnder" name="kidGirlTypeUnder" value="kid" onClick= "document.getElementById('kidGirlSpecialUnder').style.display= 'inline';
+			 document.getElementById('kidGirlSizeUnder').style.display= 'none'">Girl's Special Request Item (underwear/diapers)<br>
+			 check girl's underwear of diapers box if item is declined<br><br>
+			
+			<div id= "kidGirlSizeUnder" style="display: none;">
+				<select id="kidGirlSizeSelectUnder" onChange="kidGirlSizeUnder()">
+				<option value="E01">E01- Toddler Girl's Underwear, 2T/3T</option>
+				<option value="E02">E02- Toddler Girl's Underwear, 4T</option>
+				<option value="E03">E03- Girl's Underwear, 4</option>
+				<option value="E04">E04- Girl's Underwear, 6</option>
+				<option value="E05">E05- Girl's Underwear, 8</option>
+				<option value="E06">E06- Girl's Underwear, 10</option>
+				<option value="E07">E07- Girl's Underwear, 12</option>
+				<option value="E08">E08- Girl's Underwear, 14</option>
+				<option value="E09">E09- Girl's Underwear, 16</option>
+				<option value="E10">E10- Women's Underwear, 5</option>
+				<option value="E11">E11- Women's Underwear, 6</option>
+				<option value="E12">E12- Women's Underwear, 7</option>
+				<option value="E13">E13- Women's Underwear, 8</option>
+				<option value="E14">E14- Women's Underwear, 9</option>
+				<option value="E15">E15- Women's Underwear, 10</option>
+				<option value="E16">E16- girl's underwear declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidGirlSizePull" style="display: none;">
+				<select id="kidGirlSizeSelectPull" onChange="kidGirlSizePull()">
+				<option value="F01">F01- Size 1 diapers, 8-14 lbs</option>
+				<option value="F02">F02- Size 2 diapers, 12-18 lbs</option>
+				<option value="F03">F03- Size 3 diapers, 16-28 lbs</option>
+				<option value="F04">F04- Size 4 diapers, 22-37 lbs</option>
+				<option value="F05">F05- Size 5 diapers, over 27 lbs</option>
+				<option value="F06">F06- Size 6 diapers, over 35 lbs</option>
+				<option value="F07">F07- Girl's Large Pull-ups, 32-40 lbs</option>
+				<option value="F08">F08- Girl's XL Pull-ups, over 38 lbs</option>
+				<option value="F09">F09- Girl's diapers declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidGirlSpecialUnder" style="display: none;">
+				Girl's Socks Special Request Items
+				<input type="text" id="kidGirlSpecialTextUnder" name="kidGirlSpecialTextUnder">
 			</div>
 		</div>
 	</div>
