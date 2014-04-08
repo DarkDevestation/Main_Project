@@ -127,11 +127,13 @@ function checkForm()
 	
 	<h2>Sex of Child*</h2>
 	<input type="radio" id="girl" name="sex" value="female" onClick= "document.getElementById('girlType').style.display= 'inline';
-	 document.getElementById('boyType').style.display= 'none'">Girl<br>
+	 document.getElementById('boyType').style.display= 'none'; document.getElementById('unknownType').style.display= 'none'">Girl<br>
 	 
 	<input type="radio" id= "boy" name="sex" value="male" onClick= "document.getElementById('boyType').style.display= 'inline';
-	 document.getElementById('girlType').style.display= 'none'">Boy<br>
-	<input type="radio" id="unknown" name="sex" value="unknown">Unknown<br><br>
+	 document.getElementById('girlType').style.display= 'none'; document.getElementById('unknownType').style.display= 'none'">Boy<br>
+	 
+	<input type="radio" id="unknown" name="sex" value="unknown" onClick= "document.getElementById('unknownType').style.display= 'inline';
+	 document.getElementById('girlType').style.display= 'none'; document.getElementById('boyType').style.display= 'none'">Unknown<br><br>
 	
 	<div id= "girlType" style="display: none;">
 		<input type="radio" id="girl" name="girlOutfitType" value="baby" onClick= "document.getElementById('infantGirlType').style.display= 'inline';
@@ -143,6 +145,7 @@ function checkForm()
 		<div id= "infantGirlType" style="display: none;">
 			<input type="radio" id="standardInfantGirl" name="infantGirlType" value="baby" onClick= "document.getElementById('infantGirlSize').style.display= 'inline';
 			 document.getElementById('infantGirlSpecial').style.display= 'none'">Girl's Infant Outfit<br>
+			 
 			<input type="radio" id= "specialInfantGirl" name="infantGirlType" value="kid" onClick= "document.getElementById('infantGirlSpecial').style.display= 'inline';
 			 document.getElementById('infantGirlSize').style.display= 'none'">Special Request Infant Outfit<br><br>
 			
@@ -168,6 +171,7 @@ function checkForm()
 		<div id= "kidGirlType" style="display: none;">
 			<input type="radio" id="standardKidGirlJeans" name="kidGirlTypeJeans" value="baby" onClick= "document.getElementById('kidGirlSizeJeans').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialJeans').style.display= 'none'">Girl's Jeans<br>
+			 
 			<input type="radio" id= "specialKidGirlJeans" name="kidGirlTypeJeans" value="kid" onClick= "document.getElementById('kidGirlSpecialJeans').style.display= 'inline';
 			 document.getElementById('kidGirlSizeJeans').style.display= 'none'">Girl's Special Request Item (Jeans, Skirt, Dress)<br>
 			<br><br>
@@ -221,6 +225,7 @@ function checkForm()
 			
 			<input type="radio" id="standardKidGirl" name="kidGirlTypeShirt" value="baby" onClick= "document.getElementById('kidGirlSizeShirt').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialShirt').style.display= 'none'">Girl's Shirts<br>
+			 
 			<input type="radio" id= "specialKidGirl" name="kidGirlTypeShirt" value="kid" onClick= "document.getElementById('kidGirlSpecialShirt').style.display= 'inline';
 			 document.getElementById('kidGirlSizeShirt').style.display= 'none'">Girl's Special Request Item (Shirt)<br>
 			 check girl's shirts if item is declined and decline if dress is chosen<br><br>
@@ -257,6 +262,7 @@ function checkForm()
 			
 			<input type="radio" id="standardKidGirl" name="kidGirlTypeSocks" value="baby" onClick= "document.getElementById('kidGirlSizeSocks').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialSocks').style.display= 'none'">Girl's Socks<br>
+			 
 			<input type="radio" id= "specialKidGirlSocks" name="kidGirlTypeSocks" value="kid" onClick= "document.getElementById('kidGirlSpecialSocks').style.display= 'inline';
 			 document.getElementById('kidGirlSizeSocks').style.display= 'none'">Girl's Special Request Item (socks)<br>
 			 check girl's socks if item is declined<br><br>
@@ -284,11 +290,13 @@ function checkForm()
 			
 			<input type="radio" id="standardKidGirl" name="kidGirlTypeUnder" value="baby" onClick= "document.getElementById('kidGirlSizeUnder').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialUnder').style.display= 'none'; document.getElementById('kidGirlSizePull').style.display= 'none'">Girl's Underwear<br>
+			 
 			 <input type="radio" id="standardKidGirl" name="kidGirlTypeUnder" value="baby" onClick= "document.getElementById('kidGirlSizePull').style.display= 'inline';
 			 document.getElementById('kidGirlSpecialUnder').style.display= 'none'; document.getElementById('kidGirlSizeUnder').style.display= 'none'">Girl's Diapers and Pullups<br>
+			 
 			<input type="radio" id= "specialKidGirl" name="kidGirlTypeUnder" value="kid" onClick= "document.getElementById('kidGirlSpecialUnder').style.display= 'inline';
 			 document.getElementById('kidGirlSizePull').style.display= 'none'; document.getElementById('kidGirlSizeUnder').style.display= 'none'">Girl's Special Request Item (underwear/diapers)<br>
-			 check girl's underwear of diapers box if item is declined<br><br>
+			 check girl's underwear or diapers box if item is declined<br><br>
 			
 			<div id= "kidGirlSizeUnder" style="display: none;">
 				<select id="kidGirlSizeSelectUnder" onChange="kidGirlSizeUnder()">
@@ -343,6 +351,7 @@ function checkForm()
 		<div id= "infantBoyType" style="display: none;">
 			<input type="radio" id="standardInfantBoy" name="infantBoyType" value="baby" onClick= "document.getElementById('infantBoySize').style.display= 'inline';
 			 document.getElementById('infantBoySpecial').style.display= 'none'">Boy's Infant Outfit<br>
+			 
 			<input type="radio" id= "specialInfantBoy" name="infantBoyType" value="kid" onClick= "document.getElementById('infantBoySpecial').style.display= 'inline';
 			 document.getElementById('infantBoySize').style.display= 'none'">Special Request Infant Outfit<br><br>
 			
@@ -368,6 +377,7 @@ function checkForm()
 		<div id= "kidBoyType" style="display: none;">
 			<input type="radio" id="standardKidBoy" name="kidBoyType" value="baby" onClick= "document.getElementById('kidBoySize').style.display= 'inline';
 			 document.getElementById('kidBoySpecial').style.display= 'none'">Boy's Jeans<br>
+			 
 			<input type="radio" id= "specialKidBoy" name="kidBoyType" value="kid" onClick= "document.getElementById('kidBoySpecial').style.display= 'inline';
 			 document.getElementById('kidBoySize').style.display= 'none'">Boy's Special Request Item (Jeans)<br>
 			 check boy's jeans if item declined<br><br>
@@ -407,7 +417,144 @@ function checkForm()
 				Special Request Boy's Kid Outfit
 				<input type="text" id="kidBoySpecialText" name="kidBoySpecialText">
 			</div>
+			
+			<input type="radio" id="standardKidBoy" name="kidBoyTypeShirt" value="baby" onClick= "document.getElementById('kidBoySizeShirt').style.display= 'inline';
+			 document.getElementById('kidBoySpecialShirt').style.display= 'none'">Boy's Shirts<br>
+			 
+			<input type="radio" id= "specialKidBoy" name="kidBoyTypeShirt" value="kid" onClick= "document.getElementById('kidBoySpecialShirt').style.display= 'inline';
+			 document.getElementById('kidBoySizeShirt').style.display= 'none'">Boy's Special Request Item (Shirt)<br>
+			 type in boy's shirts if item is declined<br><br>
+			
+			<div id= "kidBoySizeShirt" style="display: none;">
+				<select id="kidBoySizeSelectShirt" onChange="kidBoySizeShirt()">
+				<option value="J01">J01- Toddler Boy's Shirts, 2T</option>
+				<option value="J02">J02- Toddler Boy's Shirts, 3T</option>
+				<option value="J03">J03- Toddler Boy's Shirts, 4T</option>
+				<option value="J04">J04- Toddler Boy's Shirts, 5T</option>
+				<option value="J05">J05- Boy's Shirts, XS</option>
+				<option value="J06">J06- Boy's Shirts, Small</option>
+				<option value="J07">J07- Boy's Shirts, Medium</option>
+				<option value="J08">J08- Boy's Shirts, Large</option>
+				<option value="J09">J09- Boy's Shirts, XL</option>
+				<option value="J10">J10- Men's Shirts, Small</option>
+				<option value="J11">J11- Men's Shirts, Medium</option>
+				<option value="J12">J12- Men's Shirts, Large</option>
+				<option value="J13">J13- Men's Shirts, XL</option>
+				<option value="J14">J14- Men's Shirts, XXL</option>
+				<option value="J15">J15- Men's Shirts, XXXL</option>
+				<option value="J16">J16- Boy's shirt declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidBoySpecialShirt" style="display: none;">
+				Boy's Shirts Special Request Items
+				<input type="text" id="kidBoySpecialTextShirt" name="kidBoySpecialTextShirt">
+				<br><br>
+			</div>
+			
+			<input type="radio" id="standardKidBoy" name="kidBoyTypeSocks" value="baby" onClick= "document.getElementById('kidBoySizeSocks').style.display= 'inline';
+			 document.getElementById('kidBoySpecialSocks').style.display= 'none'">Boy's Socks<br>
+			 
+			<input type="radio" id= "specialKidBoySocks" name="kidBoyTypeSocks" value="kid" onClick= "document.getElementById('kidBoySpecialSocks').style.display= 'inline';
+			 document.getElementById('kidBoySizeSocks').style.display= 'none'">Boy's Special Request Item (socks)<br>
+			 check Boy's socks if item is declined<br><br>
+			
+			<div id= "kidBoySizeSocks" style="display: none;">
+				<select id="kidBoySizeSelectSocks" onChange="kidBoySizeSocks()">
+				<option value="K01">K01- Infant Boy Socks, 6-12 months</option>
+				<option value="K02">K02- Infant Boy Socks, 12-24 months</option>
+				<option value="K03">K03- Toddler Boy Socks, 2-3 T</option>
+				<option value="K04">K04- Toddler Boy Socks, 4-5 T</option>
+				<option value="K05">K05- Boy's Socks, Small</option>
+				<option value="K06">K06- Boy's Socks, Medium</option>
+				<option value="K07">K07- Boy's Socks, Large</option>
+				<option value="K08">K08- Men's Socks, 6-12</option>
+				<option value="K09">K09- Men's Socks, 10-13</option>
+				<option value="K10">K10- boy's socks declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidBoySpecialSocks" style="display: none;">
+				Boy's socks special request item
+				<input type="text" id="kidBoySpecialTextSocks" name="kidBoySpecialTextSocks">
+				<br><br>
+			</div>
+			
+			<input type="radio" id="standardKidBoy" name="kidBoyTypeUnder" value="baby" onClick= "document.getElementById('kidBoySizeUnder').style.display= 'inline';
+			 document.getElementById('kidBoySpecialUnder').style.display= 'none'; document.getElementById('kidBoySizePull').style.display= 'none'">Boy's Underwear<br>
+			 
+			 <input type="radio" id="standardKidBoy" name="kidBoyTypeUnder" value="baby" onClick= "document.getElementById('kidBoySizePull').style.display= 'inline';
+			 document.getElementById('kidBoySpecialUnder').style.display= 'none'; document.getElementById('kidBoySizeUnder').style.display= 'none'">Boy's Diapers and Pullups<br>
+			 
+			<input type="radio" id= "specialKidBoy" name="kidBoyTypeUnder" value="kid" onClick= "document.getElementById('kidBoySpecialUnder').style.display= 'inline';
+			 document.getElementById('kidBoySizePull').style.display= 'none'; document.getElementById('kidBoySizeUnder').style.display= 'none'">Boy's Special Request Item (underwear/diapers)<br>
+			 type in underwear or diapers if item is declined<br><br>
+			
+			<div id= "kidBoySizeUnder" style="display: none;">
+				<select id="kidBoySizeSelectUnder" onChange="kidBoySizeUnder()">
+				<option value="L01">L01- Toddler Boy's Underwear, 2T/3T</option>
+				<option value="L02">L02- Toddler Boy's Underwear, 4T</option>
+				<option value="L04">L04- Boy's Underwear, Small</option>
+				<option value="L05">L05- Boy's Underwear, Medium</option>
+				<option value="L06">L06- Boy's Underwear, Large</option>
+				<option value="L07">L07- Boy's Underwear, Extra Large</option>
+				<option value="L08">L08- Men's Underwear, Small</option>
+				<option value="L09">L09- Men's Underwear, Medium</option>
+				<option value="L10">L10- Men's Underwear, Large</option>
+				<option value="L11">L11- Men's Underwear, XL</option>
+				<option value="L12">L12- Men's Underwear, XXL</option>
+				<option value="L13">L13- Boy's underwear declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidBoySizePull" style="display: none;">
+				<select id="kidBoySizeSelectPull" onChange="kidBoySizePull()">
+				<option value="F01">F01- Size 1 diapers, 8-14 lbs</option>
+				<option value="F02">F02- Size 2 diapers, 12-18 lbs</option>
+				<option value="F03">F03- Size 3 diapers, 16-28 lbs</option>
+				<option value="F04">F04- Size 4 diapers, 22-37 lbs</option>
+				<option value="F05">F05- Size 5 diapers, over 27 lbs</option>
+				<option value="F06">F06- Size 6 diapers, over 35 lbs</option>
+				<option value="M07">M07- Boy's Large Pull-ups, 32-40 lbs</option>
+				<option value="M08">M08- Boy's XL Pull-ups, over 38 lbs</option>
+				<option value="M09">M09- boy's diapers declined</option>
+				</select><br><br>
+			</div>
+			
+			<div id= "kidBoySpecialUnder" style="display: none;">
+				Boy's Special Request (underwear/diapers)
+				<input type="text" id="kidBoySpecialTextUnder" name="kidBoySpecialTextUnder">
+				<br><br>
+			</div>
 		</div>
+	</div>
+	
+	<div id= "unknownType" style="display: none;">
+		
+		<input type="radio" id="unisex" name="unisexOutfitType" value="baby" onClick= "document.getElementById('unisexInfantType').style.display= 'inline'">Unisex Infant Outfit<br>
+		type infant outfit, socks or diaper if is declined<br><br>
+		
+		<div id= "unisexInfantType" style="display: none;">
+				<select id="unisexSelectOutfit" onChange="unisexInfantType()">
+				<option value="N01">N01- Unisex newborn</option>
+				<option value="N02">N02- Unisex 3 Months</option>
+				<option value="N03">N03- Unisex 6 months</option>
+				<option value="N04">N04- Unisex infant outfit declined</option>
+				</select><br><br>
+				
+				<select id="unisexSelectSocks" onChange="unisexInfantType()">
+				<option value="P01">P01- Unisex socks, 6-12 months</option>
+				<option value="P02">P02- Unisex socks, 12-24 months</option>
+				<option value="P03">P03- Unisex socks declined</option>
+				</select><br><br>
+				
+				<select id="unisexSelectUnder" onChange="unisexInfantType()">
+				<option value="F01">F01- Size 1 diapers, 8-14 lbs</option>
+				<option value="F02">F02- Size 2 diapers, 12-18 lbs</option>
+				<option value="F03">F03- Size 3 diapers, 16-28 lbs</option>
+				<option value="Q04">Q04- Unisex diapers declined</option>
+				</select><br><br>
+		</div> 
 	</div>
 	
 	<h2>Age*</h2>
