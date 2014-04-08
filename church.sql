@@ -110,7 +110,7 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COMMENT = '		';
 
-CREATE TABLE IF NOT EXISTS 'stmargaretmarycatholicchurch'.`household2` (
+CREATE TABLE IF NOT EXISTS `stmargaretmarycatholicchurch`.`household2` (
   `idHouse` int(11) NOT NULL AUTO_INCREMENT,
   `resVer` varchar(25) NOT NULL,
   `hohFirst` varchar(45) NOT NULL,
@@ -130,8 +130,8 @@ CREATE TABLE IF NOT EXISTS 'stmargaretmarycatholicchurch'.`household2` (
   `secondaryphone` varchar(25) DEFAULT NULL,
   `phonetype2` varchar(25) DEFAULT NULL,
   `familymembers` int(2) DEFAULT NULL,
-  `earlyshopper` enum('yes','no') DEFAULT NULL,
-  `delivery` enum('yes','no') NOT NULL DEFAULT 'no',
+  `earlyshopper` varchar(25) DEFAULT NULL,
+  `delivery` varchar(25) NOT NULL DEFAULT 'no',
   `christmasselection` varchar(25) NOT NULL,
   `numberofchildren` int(2) NOT NULL,
   `learn` varchar(25) NOT NULL,
@@ -146,17 +146,33 @@ CREATE TABLE IF NOT EXISTS `stmargaretmarycatholicchurch`.`childclothingform2` (
   `idchildclothingform` INT(11) NOT NULL AUTO_INCREMENT,
   `hohFirst` varchar(45) NOT NULL,
   `hohLast` varchar(45) NOT NULL,
-  `childFirst` varchar(45) NOT NULL,
-  `childLast` varchar(45) NOT NULL,
   `parentFirst` varchar(45) DEFAULT NULL,
   `parentLast` varchar(45) DEFAULT NULL,
-  `idclothingitem_infantoutfit` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_jeans` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_shirt` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_socks` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_underwear` INT(11) NULL DEFAULT NULL,
-  `idclothingitem_diapersorpullups` INT(11) NULL DEFAULT NULL,
-  )
+  `childFirst` varchar(45) NOT NULL,
+  `childLast` varchar(45) NOT NULL,
+  `childId` varchar(45) NOT NULL,
+  `childSex` varchar(45) NOT NULL,
+  `girlOutfitType` varchar(45) NOT NULL,
+  `infantGirlType` varchar(45) NOT NULL,
+  `infantGirlSize` varchar(45) NOT NULL,
+  `infantGirlSpecialText` varchar(45) NOT NULL,
+  `kidGirlType` varchar(45) NOT NULL,
+  `kidGirlSize` varchar(45) NOT NULL,
+  `kidGirlSpecialText` varchar(45) NOT NULL,
+  `boyOutfitType` varchar(45) NOT NULL,
+  `infantBoyType` varchar(45) NOT NULL,
+  `infantBoySize` varchar(45) NOT NULL,
+  `infantBoySpecialText` varchar(45) NOT NULL,
+  `kidBoyType` varchar(45) NOT NULL,
+  `kidBoySize` varchar(45) NOT NULL,
+  `kidBoySpecialText` varchar(45) NOT NULL,
+  `childAge` varchar(45) NOT NULL,
+  `another` varchar(45) NOT NULL,
+  `notes` varchar(45) DEFAULT NULL,
+  `review` varchar(45) NOT NULL,
+  `completedBy` varchar(45) NOT NULL,
+  PRIMARY KEY (`idchildclothingform`)
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3;
 -- -----------------------------------------------------
 -- Table `stmargaretmarycatholicchurch`.`gender`
 -- -----------------------------------------------------
